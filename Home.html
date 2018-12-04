@@ -1,0 +1,177 @@
+ <html>
+ <head>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+ <link rel="stylesheet" href="styles2.css" type="text/css">
+ <meta name="viewport"content="width=device-width, initial-scale=1.0">
+ 
+ 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+ </script>
+ 
+<script>
+$(document).ready(function() {
+
+ var sideMenu = false;
+  document.getElementById 
+  $(".tab").click(function(e) { 
+  
+  if (!sideMenu) {
+  $(this).closest("#tab").animate({left: "80px"});
+   sideMenu = true; 
+   }else{ 
+   $(this).closest("#tab").animate({left: "0px"});
+    sideMenu = false; }
+    }); 
+    }); 
+    </script>
+    
+ 
+ <div class="container-fluid">
+ <div class="row-xs-12 nav-bar">
+ <ul class ="navigation">
+     <li><a class ="active" href="#">Home</a></li>
+     <li><a href="#MySQL.html">MySQL</a></li>
+     <li><a href="#">Mine Sweeper</a></li>
+     <li><a href="#">Block blaster</a></li>
+     <li><a href="#">Skills</a></li>
+     <li><a href="#">Goals</a></li>
+  </ul>
+<center><img src="Photo.jpg" ></center>
+</div>
+</div>
+</head>
+<body>
+ <div class="spacer"></div>
+ <div class ="container" style="background-color:white;">
+ 
+  <div id="outer-lining" class="outer-lining">
+  <div id="main-content" class="main-background">
+     
+      <div class="row"> 
+        <div id="tab" class="col">
+        <div id="defaultcontent" class="tab" onclick="popTabOut(event, 'personalProfile')">
+        <p>Personal Profile</p></div> 
+        </div>
+      </div>
+      <div class="row">
+       <div id="tab" class="col">
+        <div class="tab" onclick="popTabOut(event, 'skills')" >
+          <p>Skills</p></div>
+        </div>
+      </div>
+      <div class="row">
+         <div id="tab" class="col" > 
+          <div class ="tab" onclick="popTabOut(event, 'workExperience')">
+            <p>Work Experience</p></div>
+        </div>
+      </div>
+       <div class="row">
+        <div id="tab" class="col">
+          <div class ="tab" onclick="popTabOut(event, 'education')">
+            <p>Education</p></div>
+        </div>
+      </div>
+       <div class="row">
+         <div id="tab" class="col" >
+          <div class="tab" onclick="popTabOut(event,'goals')">
+            <p>Goals</p></div>
+        </div>
+      </div>
+  </div>
+ </div>
+</div>
+<!-- Main resume content-->
+<div class="container">
+  <div class="outer-lining-resume main-content">
+
+      <div class="row">
+      <div id="personalProfile" class="col-lg-12 tabContent">
+        <h4 >Personal Profile</h4>
+          <p id="defaultcontent" class="col-lg-6 main-content"> Being 25 years old looking for a position in a professinoal setting especially in the computer programming scene is not easy. Having freshly
+          graduated from the University Of New Brunswick, studing Business Administration
+          and Computer Science.</br> This is a new line break</p>
+    	</div>
+
+      <div id="skills" class="col-lg-4 tabContent main-content">
+        <h4 style="width:800px; background-color:white;"> Skills</h4>
+          <div class="main-content" style="background-color: black;">
+            <ul class="navigation">
+              <li class="navi">programming</li>
+            </ul>
+          <ul>
+            <li class="skill-list">HTML/CSS</li>
+            <li class="skill-list">Bootstrap</br></li>
+            <li class="skill-list">Java</li>
+            <li class="skill-list">PHP</li>
+            <li class="skill-list">JavaScript/Jquery</li>
+          </ul>
+
+          </div>
+          </div>
+          <div class="col-lg-4" style="background-color: black;">
+            <ul></ul>
+              <li class="skill-list">C Script</li>
+              <li class="skill-list">AngularJS</li>
+              <li class="skill-list">MySQL</li>
+            </ul>
+          </div>
+          <div>
+
+          </div>
+      </div>
+      <div id="workExperience" class="tabContent main-content">
+        <h4> Work Experience </h4>
+          <p> </p>
+      </div>
+      <div id="education" class="tabContent main-content">
+        <h4> Education</h4>
+          <p>TabContents: Education information goes here when the tab is pressed</p>
+    	</div>
+      <div id="goals" class="tabContent main-content">
+        <h4> Goals</h4>
+        <p>TabContent: Goals should be placed here when the tab is pressed</p>
+      </div>
+
+    	
+    	<script>
+    	function popTabOut(evt, tabName){
+
+        var i,tabContent,tab;
+
+        tabContent = document.getElementsByClassName("tabContent");
+        for(i = 0; i < tabContent.length; i++){
+          tabContent[i].style.display = "none";
+        }
+
+        tab = document.getElementsByClassName("tab");
+        for(i=0; i < tab.length; i++){
+          tab[i].className = tab[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className +=" active";
+      }
+        document.getElementById("defaultcontent").click();
+    	</script>
+
+  
+      
+
+ 
+    	</body>
+    
+    	
+    	
+ 
+
+ 
+ 
+ </html>  
+
+ <!-- <script>
+ $(document).ready(function(){
+ $(".tab").click(function(){
+ $("#clickme").animate({left: '50px'});
+ });
+ });
+ </script> -->
