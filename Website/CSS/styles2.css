@@ -101,16 +101,19 @@ padding: 4px 4px;
  float:left;
  }
  
- .ul-list-container{
-  width:300px;
-  background-color: black;
+ .list-container{
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 150px;
+  width: 25px;
  }
 
  .skill-list{
   margin-left: 18px;
   padding: 0px 8px;
   width:200px;
-  background-color: yellow;
+  
   display: block;
   float:left;
  }
