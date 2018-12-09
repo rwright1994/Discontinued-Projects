@@ -1,0 +1,206 @@
+[
+	{
+		"Name": "Pesent",
+		"Stats":[
+			{
+				"Name": "Strength",
+				"Value": 6
+			},
+			{
+				"Name": "Constitution",
+				"Value": 6
+			},
+			{
+				"Name": "Dexterity",
+				"Value": 4
+			},
+			{
+				"Name": "Luck",
+				"Value": 1
+			},
+			{
+
+				"Name": "Intellegence",
+				"Value": 2
+			},
+			{
+				"Name": "Will Power",
+				"Value": 3
+			}
+			]
+		},
+		{
+		"StatsUp":[
+			{
+				"Name": "Strength",
+				"Value": 5
+			},
+			{
+				"Name": "Constitution",
+				"Value": 6
+			},
+			{
+				"Name": "Dexterity",
+				"Value": 4
+			},
+			{
+				"Name": "Luck",
+				"Value": 1
+			},
+			{
+
+				"Name": "Intellegence",
+				"Value": 2
+			},
+			{
+				"Name": "Will Power",
+				"Value": 3
+			}
+			]
+		},
+		{
+		
+		"Resource":
+			{
+				"Name": "Rage",
+				"CurrResource": 0,
+				"MaxResource": 25
+			}
+	},
+	{
+		"Name": "Student",
+		"Stats": [
+			{
+				"Name": "Strength",
+				"Value": 1
+			},
+			{
+				"Name": "Constitution",
+				"Value": 1
+			},
+			{
+				"Name": "Dexterity",
+				"Value": 4
+			},
+			{
+				"Name": "Luck",
+				"Value": 1
+			},
+			{
+
+				"Name": "Intellegence",
+				"Value": 2
+			},
+			{
+				"Name": "Will Power",
+				"Value": 3
+			}
+			]
+		},
+		{
+		"StatsUp":[
+			{
+				"Name": "Strength",
+				"Value": 6
+			},
+			{
+				"Name": "Constitution",
+				"Value": 6
+			},
+			{
+				"Name": "Dexterity",
+				"Value": 4
+			},
+			{
+				"Name": "Luck",
+				"Value": 1
+			},
+			{
+
+				"Name": "Intellegence",
+				"Value": 2
+			},
+			{
+				"Name": "Will Power",
+				"Value": 3
+			}
+			]
+		},
+		{
+		"Resource":
+			{
+				"Name": "Rage",
+				"CurrResource": 0,
+				"MaxResource": 25
+			}
+	},
+	{
+		"Name": "Scrounger",
+		"Stats":[
+			{
+				"Name": "Strength",
+				"Value": 2
+			},
+			{
+				"Name": "Constitution",
+				"Value": 2
+			},
+			{
+				"Name": "Dexterity",
+				"Value": 1
+			},
+			{
+				"Name": "Luck",
+				"Value": 1
+			},
+			{
+
+				"Name": "Intellegence",
+				"Value": 1
+			},
+			{
+				"Name": "Will Power",
+				"Value": 1
+			}
+			]
+		},
+		{
+		"StatsUp":[
+			{
+				"Name": "Strength",
+				"Value": 6
+			},
+			{
+				"Name": "Constitution",
+				"Value": 6
+			},
+			{
+				"Name": "Dexterity",
+				"Value": 4
+			},
+			{
+				"Name": "Luck",
+				"Value": 1
+			},
+			{
+
+				"Name": "Intellegence",
+				"Value": 2
+			},
+			{
+				"Name": "Will Power",
+				"Value": 3
+			}
+			]
+		},
+		{
+		"Resource":
+			{
+				"Name": "Rage",
+				"CurrResource": 0,
+				"MaxResource": 25
+			}
+	}
+]
+
+
