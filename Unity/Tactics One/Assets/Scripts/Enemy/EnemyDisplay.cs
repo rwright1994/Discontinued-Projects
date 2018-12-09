@@ -39,6 +39,7 @@ public class EnemyDisplay : MonoBehaviour {
         
     }
 
+    //Change from unselected sprite to selected sprite
     public void IsSelected()
     {
         if (enemy.Selected == true)
@@ -52,6 +53,7 @@ public class EnemyDisplay : MonoBehaviour {
         }
     }
 
+    //Updates monsters HP bar.
     public void ChangeHealth()
     {
        
@@ -60,6 +62,8 @@ public class EnemyDisplay : MonoBehaviour {
             Die();
     }
 
+
+    
     public void Die()
     {
         foreach(Champion champ in pm.player.Champions){
@@ -73,9 +77,5 @@ public class EnemyDisplay : MonoBehaviour {
 
         Destroy(transform.parent.gameObject);
         
-    }
-
-   
-
-    
+    }  
 }

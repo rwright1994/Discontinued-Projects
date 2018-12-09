@@ -23,6 +23,7 @@ public class ChampionManager : MonoBehaviour {
 		
 	}
 
+    //Renders all champions at the start of the battle.
     public void GenerateChampion()
     {
         int pos = 0;

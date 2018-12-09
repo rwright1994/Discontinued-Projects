@@ -18,12 +18,13 @@ public class MonsterGenerator : MonoBehaviour {
 		
 	}
 
+
+    //Generates placeholder monsters within a random range.
     public void GenerateMonsters()
     {
-        
         for(int i = 0; i < temp; i++)
         {
-            Debug.Log(i);
+            
             int posInList = (int)Random.Range(0f, 1.9f); 
             GameObject monster = Instantiate(monsterPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
             monster.name = EnemyList[posInList].name;

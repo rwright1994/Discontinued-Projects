@@ -33,6 +33,7 @@ public class ChararacterCreationHandler : MonoBehaviour, IPointerClickHandler {
     }
 
 
+    //create character with selected class and provided name.
     public void OnPointerClick(PointerEventData eventData)
     {
         if (selectedClass != null && selectedClass != "Select a Class...")
@@ -75,6 +76,7 @@ public class ChararacterCreationHandler : MonoBehaviour, IPointerClickHandler {
         }
     }
 
+    //Display character stats in character info panel
     public void Dropdown_IndexChanged(int index)
         {
             selectedClass = classSelector.options[index].text;

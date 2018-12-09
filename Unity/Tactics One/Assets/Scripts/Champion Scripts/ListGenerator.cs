@@ -28,6 +28,8 @@ public class ListGenerator : MonoBehaviour {
 		
 	}
 
+
+    //Renders all player's champions.
     public void GenerateSlots()
     {
         for (int i = 0; i < player.player.Champions.Count; i++)

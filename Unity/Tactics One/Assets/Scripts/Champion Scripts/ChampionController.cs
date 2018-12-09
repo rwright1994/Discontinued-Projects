@@ -29,6 +29,8 @@ public class ChampionController : MonoBehaviour {
         AddExperience();
 	}
 
+
+    //Change unselected sprite to selected sprite
     public void IsSelected()
     {
         if(champion.Selected == true)
@@ -41,6 +43,8 @@ public class ChampionController : MonoBehaviour {
         }
     }
 
+
+
     public void ChangeHealth()     {
         HealthBar.fillAmount = (float)champion.Health / champion.MaxHealth;
         if(champion.Health <= 0)
@@ -48,6 +52,7 @@ public class ChampionController : MonoBehaviour {
             Die();
         }
     }
+    
 
     public void AddExperience()
     {
@@ -62,9 +67,11 @@ public class ChampionController : MonoBehaviour {
         
     }
 
+
+    //Update champion resource bar each frame.
     public void ChangeResource()
     {
-        this.champion.Resource.CurrResource += 10;
+        
         ResourceBar.fillAmount = (float)champion.Resource.CurrResource / champion.Resource.MaxResource;
     }
 

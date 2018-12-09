@@ -38,7 +38,7 @@ public class Champion
         this.Experience = experience;
         this.Selected = false;
         this.ExpToNext = 100;
-        //this.Skills = skills;
+        this.Skills = null;
     }
 
 
@@ -107,6 +107,7 @@ public class Champion
         }
         return 0;
     }
+
 
     public void LearnSkill(string skillName)
     {
