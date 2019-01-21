@@ -1,0 +1,61 @@
+.card-flipper-container{
+	position:relative;
+	
+	margin-top:5%;
+	margin-left:10%;
+	float:left;
+	border-style: solid;
+	
+}
+
+.card-flipper-container:hover .card-flipper, .card-container.hover .card-flipper{
+	transform: rotateY(180deg);
+
+
+}
+
+.card-flipper-container, .card-front{
+	width:320px;
+	height:480px;
+
+	
+}
+
+.card-back{
+	width:320px;
+	height:480px;
+	
+}
+
+.card-front, .card-back{
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left:0;
+
+}
+
+.card-flipper{
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+.card-front{
+	z-index: 2;
+	
+	transform: rotateY(0deg);
+}
+
+.card-back{
+	padding:5%;
+	transform: rotateY(180deg);
+}
+
+
+
+.card-flipper .card-front img{
+	height: 50%
+	width: 50%;
+}
