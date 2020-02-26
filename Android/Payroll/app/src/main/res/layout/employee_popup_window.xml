@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPopUpWindowBackground"
+    android:orientation="vertical">
+
+
+    <Button
+        android:id="@+id/generatePayrollBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:backgroundTint="@android:color/background_light"
+        android:text="@string/universal_btn_genPayroll" />
+
+    <Button
+        android:id="@+id/editPayrollBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:backgroundTint="@android:color/background_light"
+        android:text="Edit Payroll" />
+
+    <Button
+        android:id="@+id/generateT4Btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:backgroundTint="@android:color/background_light"
+        android:text="@string/universal_btn_genT4" />
+
+    <Button
+        android:id="@+id/generateLoEBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:backgroundTint="@android:color/background_light"
+        android:text="@string/universal_btn_LoE" />
+    .
+
+    <Button
+        android:id="@+id/popUpEditBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:backgroundTint="@android:color/background_light"
+        android:text="@string/universal_btn_edit" />
+
+    <Button
+        android:id="@+id/popUpCancelBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:backgroundTint="@android:color/background_light"
+        android:text="@string/universal_btn_cancel" />
+
+</LinearLayout>
