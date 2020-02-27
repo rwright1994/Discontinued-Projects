@@ -3,6 +3,7 @@ package com.example.payroll.Main.Adapters;
 import android.content.Context;
 import android.content.res.AssetManager;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,44 +18,85 @@ import static com.example.payroll.Main.Utils.MathUtil.round;
 public class TaxDeductorAdapter {
 
 
-    private Sheet sh;
+    private Sheet shFedTable, shCPPTable, shEITable;
+    private HSSFWorkbook wbProvTables, wbClaimCodeTable;
     private AssetManager assetManager;
 
-    public TaxDeductorAdapter(Context context){
+    public TaxDeductorAdapter(Context context) throws IOException{
         assetManager = context.getAssets();
+        initTables();
     }
 
-    public double deductCPP(int payPeriods, double pay) throws IOException {
+    private void initTables() throws IOException{
+        initClaimCodeTable(2019);
+        initCPPTable(2019);
+        initEITable();
+        initIncomeTaxTables();
 
-        double res = 0;
-        double maxPenEarnings = 0;
-        double bscExcemptAmt = 0;
-        double contRate = 0;
+    }
 
-        try {
+    private void initClaimCodeTable(int year) throws IOException{
+        try{
+            InputStream mInputStream = assetManager.open("Tax Tables/Claim Codes - 2019.xls");
+            POIFSFileSystem mFileSystem = new POIFSFileSystem(mInputStream);
+            HSSFWorkbook wbClaimCodeTable = new HSSFWorkbook(mFileSystem);
+            mInputStream.close();
 
-            InputStream  myInputStream = assetManager.open("Tax Tables/CPP Deduction Amounts - 2019.xls");
-
-            POIFSFileSystem myFileSystem = new POIFSFileSystem(myInputStream);
-            HSSFWorkbook wb = new HSSFWorkbook(myFileSystem);
-            sh = wb.getSheetAt(0);
-
-            maxPenEarnings = sh.getRow(1).getCell(1).getNumericCellValue();
-            bscExcemptAmt = round((sh.getRow(5).getCell(1).getNumericCellValue()),2);
-            contRate = round(sh.getRow(2).getCell(1).getNumericCellValue(),3);
-
-            //Close file system and Input Stream.
-            myFileSystem.close();
-            myInputStream.close();
-
-            bscExcemptAmt = bscExcemptAmt / payPeriods;
-
-
-            res = (pay - bscExcemptAmt) * contRate;
-
-        } catch (FileNotFoundException e) {
+        }catch(FileNotFoundException e){
             e.printStackTrace();
         }
+    }
+
+    private void initCPPTable(int year) throws IOException{
+        try{
+            InputStream mInputStream = assetManager.open("Tax Tables/CCP Deduction Amounts - 2019.xls");
+            POIFSFileSystem mFileSystem = new POIFSFileSystem(mInputStream);
+            HSSFWorkbook mWorkBook = new HSSFWorkbook(mFileSystem);
+            shCPPTable = mWorkBook.getSheetAt(0);
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void initEITable() throws IOException{
+        try{
+            InputStream mInputStream = assetManager.open("Tax Tables/EI Table.xls");
+            POIFSFileSystem mFileSystem = new POIFSFileSystem(mInputStream);
+            HSSFWorkbook mWorkBook = new HSSFWorkbook(mFileSystem);
+            shEITable = mWorkBook.getSheetAt(0);
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void initIncomeTaxTables() throws IOException{
+        try{
+            InputStream mInputStream = assetManager.open("Tax Tables/Income Tax Brackets.xls");
+            POIFSFileSystem mFileSystem = new POIFSFileSystem(mInputStream);
+            HSSFWorkbook mWorkBook = new HSSFWorkbook(mFileSystem);
+            wbProvTables = mWorkBook;
+            shFedTable = mWorkBook.getSheet("Federal");
+            mInputStream.close();
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+
+
+
+    public double deductCPP(int payPeriods, double pay) {
+
+
+
+        double maxPenEarnings = shCPPTable.getRow(1).getCell(1).getNumericCellValue();
+        double basExemptionAmt = round((shCPPTable.getRow(5).getCell(1).getNumericCellValue()),2);
+        double contRate = round(shCPPTable.getRow(2).getCell(1).getNumericCellValue(),3);
+
+        basExemptionAmt = basExemptionAmt / payPeriods;
+
+
+        double res = (pay - basExemptionAmt) * contRate;
+
 
         if(res >= maxPenEarnings) {
             res = maxPenEarnings;
@@ -76,22 +118,13 @@ public class TaxDeductorAdapter {
         return 0;
     }
 
+
     //get federal claim code deduction constant.
     public double getFedClaimCode(int claimCode) throws IOException {
 
-        double res = 0;
+        Sheet tempSh = wbClaimCodeTable.getSheetAt(0);
 
-        InputStream fis = assetManager.open("Tax Tables/Claim Codes - 2019.xls");
-        POIFSFileSystem myFileSystem = new POIFSFileSystem(fis);
-        Workbook wb = new HSSFWorkbook(myFileSystem);
-
-        sh = wb.getSheetAt(0);
-        res = sh.getRow(claimCode+1).getCell(4).getNumericCellValue();
-
-        myFileSystem.close();
-        fis.close();
-
-        return res;
+        return tempSh.getRow(claimCode+1).getCell(4).getNumericCellValue();
 
     }
 
@@ -100,136 +133,93 @@ public class TaxDeductorAdapter {
 
         double res = 0;
 
-        try {
-
-
             // Claim codes  for provincial taxes.
-            InputStream fis = assetManager.open("Tax Tables/Claim Codes - 2019.xls");
-            POIFSFileSystem poifsFileSystem = new POIFSFileSystem(fis);
-            Workbook wb = new HSSFWorkbook(poifsFileSystem);
+            Sheet tempSh = null;
 
 
             switch(province) {
                 case "AB":
-                    sh = wb.getSheet("Alberta Claim Codes");
+                    tempSh = wbClaimCodeTable.getSheet("Alberta Claim Codes");
                     break;
                 case "BC":
-                    sh = wb.getSheet("British Columbia Claim Codes");
+                    tempSh = wbClaimCodeTable.getSheet("British Columbia Claim Codes");
                     break;
                 case "MB":
-                    sh = wb.getSheet("Manitoba Claim Codes");
+                    tempSh = wbClaimCodeTable.getSheet("Manitoba Claim Codes");
                     break;
                 case "NB":
-                    sh = wb.getSheet("New Brunswick Claim Codes");
+                    tempSh = wbClaimCodeTable.getSheet("New Brunswick Claim Codes");
                     break;
                 case "NL":
-                    sh = wb.getSheet("Newfoundland and Labrador Claim Codes");
+                    tempSh = wbClaimCodeTable.getSheet("Newfoundland and Labrador Claim Codes");
                     break;
                 case "NT":
-                    sh = wb.getSheet("Northwest Territories Claim Codes");
+                    tempSh = wbClaimCodeTable.getSheet("Northwest Territories Claim Codes");
                     break;
                 case "NU":
-                    sh = wb.getSheet("Nunavut Claim Codes");
+                    tempSh = wbClaimCodeTable.getSheet("Nunavut Claim Codes");
                     break;
                 case "ON":
-                    sh = wb.getSheet("Ontario Claim Codes");
+                    tempSh = wbClaimCodeTable.getSheet("Ontario Claim Codes");
                     break;
                 case "PE":
-                    sh = wb.getSheet("Prince Edward Island Claim Codes");
+                    tempSh = wbClaimCodeTable.getSheet("Prince Edward Island Claim Codes");
                     break;
                 case "SK":
-                    sh = wb.getSheet("Saskatchewan Claim Codes");
+                    tempSh = wbClaimCodeTable.getSheet("Saskatchewan Claim Codes");
                     break;
                 case "YT":
-                    sh = wb.getSheet("Yukon Claim Codes");
+                    tempSh = wbClaimCodeTable.getSheet("Yukon Claim Codes");
                     break;
             }
-            res = sh.getRow(claimCode+1).getCell(4).getNumericCellValue();
 
-
-            fis.close();
-
-
-        }catch(FileNotFoundException e) {
-            e.printStackTrace();
-        }
+            res = tempSh.getRow(claimCode+1).getCell(4).getNumericCellValue();
 
         return res;
 
 
     }
 
-
-
     public double deductProvTax(String province, int payPeriods, double salary, int claimCode) throws IOException {
 
         double res = 0;
 
         try {
-
-            InputStream fis = assetManager.open("Tax Tables/Income Tax Brackets.xls");
-            POIFSFileSystem poifsFileSystem = new POIFSFileSystem(fis);
-            Workbook wb = new HSSFWorkbook(poifsFileSystem);
-
             switch(province) {
                 case "AB":
-                    sh = wb.getSheet("Alberta");
-                    res = calcT4(payPeriods, salary, sh, getProvClaimCode("AB",claimCode));
-                    break;
+                    return calcT4(payPeriods, salary, wbProvTables.getSheet("Alberta"), getProvClaimCode("AB",claimCode));
                 case "BC":
-                    sh = wb.getSheet("British Columbia");
-                    res = calcT4(payPeriods, salary, sh, getProvClaimCode("BC", claimCode));
-                    break;
+                    return calcT4(payPeriods, salary, wbProvTables.getSheet("British Columbia"), getProvClaimCode("BC", claimCode));
                 case "MB":
-                    sh = wb.getSheet("Manitoba");
-                    res = calcT4(payPeriods,salary,sh,getProvClaimCode("MB",claimCode));
-                    break;
+                    return calcT4(payPeriods,salary,wbProvTables.getSheet("Manitoba"),getProvClaimCode("MB",claimCode));
                 case "NB":
-                    sh = wb.getSheet("New Brunswick");
-                    res = calcT4(payPeriods,salary,sh,getProvClaimCode("NB",claimCode));
-                    break;
+                    return calcT4(payPeriods,salary,wbProvTables.getSheet("New Brunswick"),getProvClaimCode("NB",claimCode));
                 case "NL":
-                    sh = wb.getSheet("Newfoundland and Labrador");
-                    res = calcT4(payPeriods,salary,sh,getProvClaimCode("NL",claimCode));
-                    break;
+                    return calcT4(payPeriods,salary,wbProvTables.getSheet("Newfoundland and Labrador"),getProvClaimCode("NL",claimCode));
                 //	case "NS":
                 //		  sh = wb.getSheet("Nova Scotia");
                 //		  res = calcT4(payPeriods, salary, sh, getProvClaimCode("NS",claimCode));
                 case "NT":
-                    sh = wb.getSheet("Northwest Territories");
-                    res = calcT4(payPeriods,salary,sh,getProvClaimCode("NT",claimCode));
-                    break;
+                    return calcT4(payPeriods,salary,wbProvTables.getSheet("Northwest Territories"),getProvClaimCode("NT",claimCode));
                 case "NU":
-                    sh = wb.getSheet("Nunavut");
-                    res = calcT4(payPeriods,salary,sh,getProvClaimCode("NU",claimCode));
-                    break;
+                    return calcT4(payPeriods,salary,wbProvTables.getSheet("Nunavut"),getProvClaimCode("NU",claimCode));
                 case "ON":
-                    sh = wb.getSheet("Ontario");
-                    res = calcT4(payPeriods,salary,sh,getProvClaimCode("ON",claimCode));
-                    break;
+                    return calcT4(payPeriods,salary,wbProvTables.getSheet("Ontario"),getProvClaimCode("ON",claimCode));
                 case "PE":
-                    sh = wb.getSheet("Prince Edward Island");
-                    res = calcT4(payPeriods,salary,sh,getProvClaimCode("PE",claimCode));
-                    break;
+                    return calcT4(payPeriods,salary,wbProvTables.getSheet("Prince Edward Island"),getProvClaimCode("PE",claimCode));
                 case "SK":
-                    sh = wb.getSheet("Saskatchewan");
-                    res = calcT4(payPeriods,salary,sh,getProvClaimCode("SK",claimCode));
-                    break;
+                    return calcT4(payPeriods,salary,wbProvTables.getSheet("Saskatchewan"),getProvClaimCode("SK",claimCode));
                 case "YT":
-                    sh = wb.getSheet("Yukon");
-                    res = calcMBTax(payPeriods,salary,sh,getProvClaimCode("YT",claimCode));
-                    break;
+                    return calcMBTax(payPeriods,salary,wbProvTables.getSheet("Yukon"),getProvClaimCode("YT",claimCode));
             }
 
-            poifsFileSystem.close();
-            fis.close();
 
         }catch(FileNotFoundException e) {
             e.printStackTrace();
         }
 
 
-        return res;
+        return 0;
     }
 
 
@@ -259,35 +249,15 @@ public class TaxDeductorAdapter {
 
         double res = 0;
 
-        InputStream fis = assetManager.open("Tax Tables/CPP Deduction Amounts - 2019.xls");
-        POIFSFileSystem poifsFileSystem = new POIFSFileSystem(fis);
-
-        Workbook wb = new HSSFWorkbook(poifsFileSystem);
-        sh = wb.getSheetAt(0);
-        res = (sh.getRow(3).getCell(1).getNumericCellValue());
-
-        poifsFileSystem.close();
-        fis.close();
+        res = (shCPPTable.getRow(3).getCell(1).getNumericCellValue());
 
         return res;
     }
 
     public double getMaxEICont() throws IOException {
 
-        double res = 0;
+       return shEITable.getRow(3).getCell(1).getNumericCellValue();
 
-        InputStream fis = assetManager.open("Tax Tables/EI Table.xls");
-        POIFSFileSystem poifsFileSystem = new POIFSFileSystem(fis);
-        Workbook wb = new HSSFWorkbook(poifsFileSystem);
-
-        sh = wb.getSheetAt(0);
-        wb.close();
-        poifsFileSystem.close();
-        fis.close();
-
-        res = sh.getRow(3).getCell(1).getNumericCellValue();
-
-        return res;
     }
 
     //Calculate Federal income tax deductions.
@@ -301,29 +271,25 @@ public class TaxDeductorAdapter {
 
         try {
 
-            InputStream fis = assetManager.open("Tax Tables/Income Tax Brackets.xls");
-            POIFSFileSystem poifsFileSystem = new POIFSFileSystem(fis);
-            Workbook wb = new HSSFWorkbook(poifsFileSystem);
-            sh = wb.getSheetAt(0);
 
 
-            baseRate = sh.getRow(1).getCell(2).getNumericCellValue();
+            baseRate = shFedTable.getRow(1).getCell(2).getNumericCellValue();
 
-            if(salary <= sh.getRow(1).getCell(1).getNumericCellValue()) {
-                K = sh.getRow(1).getCell(3).getNumericCellValue();
+            if(salary <= shFedTable.getRow(1).getCell(1).getNumericCellValue()) {
+                K = shFedTable.getRow(1).getCell(3).getNumericCellValue();
                 rate = baseRate;
-            }else if(salary > sh.getRow(1).getCell(1).getNumericCellValue() && salary <=  sh.getRow(2).getCell(1).getNumericCellValue()){
-                K = sh.getRow(2).getCell(3).getNumericCellValue();
-                rate = sh.getRow(2).getCell(2).getNumericCellValue();
-            }else if(salary > sh.getRow(2).getCell(1).getNumericCellValue() && salary <= sh.getRow(3).getCell(1).getNumericCellValue()){
-                K = sh.getRow(3).getCell(3).getNumericCellValue();
-                rate = sh.getRow(3).getCell(2).getNumericCellValue();
-            }else if(salary > sh.getRow(3).getCell(1).getNumericCellValue() && salary <= sh.getRow(4).getCell(1).getNumericCellValue()){
-                K = sh.getRow(4).getCell(3).getNumericCellValue();
-                rate = sh.getRow(4).getCell(2).getNumericCellValue();
+            }else if(salary > shFedTable.getRow(1).getCell(1).getNumericCellValue() && salary <=  shFedTable.getRow(2).getCell(1).getNumericCellValue()){
+                K = shFedTable.getRow(2).getCell(3).getNumericCellValue();
+                rate = shFedTable.getRow(2).getCell(2).getNumericCellValue();
+            }else if(salary > shFedTable.getRow(2).getCell(1).getNumericCellValue() && salary <= shFedTable.getRow(3).getCell(1).getNumericCellValue()){
+                K = shFedTable.getRow(3).getCell(3).getNumericCellValue();
+                rate = shFedTable.getRow(3).getCell(2).getNumericCellValue();
+            }else if(salary > shFedTable.getRow(3).getCell(1).getNumericCellValue() && salary <= shFedTable.getRow(4).getCell(1).getNumericCellValue()){
+                K = shFedTable.getRow(4).getCell(3).getNumericCellValue();
+                rate = shFedTable.getRow(4).getCell(2).getNumericCellValue();
             }else {
-                K = sh.getRow(5).getCell(3).getNumericCellValue();
-                rate = sh.getRow(5).getCell(2).getNumericCellValue();
+                K = shFedTable.getRow(5).getCell(3).getNumericCellValue();
+                rate = shFedTable.getRow(5).getCell(2).getNumericCellValue();
             }
 
             K1 = getFedClaimCode(claimCode);
@@ -335,9 +301,6 @@ public class TaxDeductorAdapter {
             }else {
                 K4 = baseRate * salary;
             }
-
-            poifsFileSystem.close();
-            fis.close();
 
             res = (rate * salary) - K - K1 - K2 - K3 - K4;
             res = round((res / payPeriods),3);

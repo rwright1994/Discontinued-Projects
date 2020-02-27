@@ -22,6 +22,7 @@ import com.example.payroll.Main.DataObjects.Payroll;
 import com.example.payroll.Main.Fragments.DatePickerFragment;
 import com.example.payroll.R;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -48,7 +49,12 @@ public class GeneratePayrollActivity extends AppCompatActivity implements Adapte
         final int position = getIntent().getIntExtra("Position",0);
         employee = (Employee)getIntent().getSerializableExtra("Employee");
 
-        mTaxDeductorAdapter = new TaxDeductorAdapter(this);
+        try {
+            initTaxDeductor();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         payPeriodSpinner = findViewById(R.id.PayPeriods);
         ArrayAdapter<CharSequence> payPeriodsSpinnerAdapter = ArrayAdapter.createFromResource(this, R.array.payPeriods, android.R.layout.simple_spinner_item);
         payPeriodsSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -131,12 +137,13 @@ public class GeneratePayrollActivity extends AppCompatActivity implements Adapte
                     gross = round((employee.getHourlyWage() * hours),2);
                     cpp = mTaxDeductorAdapter.deductCPP(payPeriods, gross);
                     ei = mTaxDeductorAdapter.calcEI(gross);
-                    federal = mTaxDeductorAdapter.calc
+                    federal = mTaxDeductorAdapter.deductFedTax(gross, payPeriods,claimCode);
+                    provincial = mTaxDeductorAdapter.deductProvTax("NB",payPeriods,gross,claimCode);
                     net = round(gross - cpp - ei,2);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Payroll payrollObj = new Payroll(gross,net,ei,cpp, mDate1,mDate2);
+                Payroll payrollObj = new Payroll(gross,net,ei,cpp,federal, provincial, mDate1,mDate2);
                 returnIntent.putExtra("Payroll", payrollObj);
                 returnIntent.putExtra("Position", position);
                 setResult(Activity.RESULT_OK, returnIntent);
@@ -153,6 +160,10 @@ public class GeneratePayrollActivity extends AppCompatActivity implements Adapte
         });
 
 
+    }
+
+    public void initTaxDeductor() throws IOException{
+        mTaxDeductorAdapter = new TaxDeductorAdapter(this);
     }
 
     @Override
