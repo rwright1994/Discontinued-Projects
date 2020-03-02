@@ -139,13 +139,11 @@ public class Employee implements Serializable {
     public double getSalary(){return salary;}
 
 
-    public Address getAddressObj() {
+    public Address getAddress() {
         return address;
     }
 
-    public void getAddress() {
 
-    }
 
     public void setAddress(Address address) {
         this.address = address;

@@ -22,8 +22,8 @@ import com.example.payroll.Main.DataObjects.Payroll;
 import com.example.payroll.Main.Fragments.DatePickerFragment;
 import com.example.payroll.R;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -36,10 +36,13 @@ public class GeneratePayrollActivity extends AppCompatActivity implements Adapte
     private EditText fromDate, toDate, hoursWorked;
     private TaxDeductorAdapter mTaxDeductorAdapter;
     private Spinner payPeriodSpinner, claimCodeSpinner;
-    private int payPeriods, claimCode;
+
     private Date mDate1, mDate2;
     private Employee employee;
+    private Payroll payrollObj;
 
+    private int payPeriods, claimCode;
+    private double hours;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,10 +50,13 @@ public class GeneratePayrollActivity extends AppCompatActivity implements Adapte
         setContentView(R.layout.activity_generate_payroll);
 
         final int position = getIntent().getIntExtra("Position",0);
+
+        //Get employee Object from previous activity.
         employee = (Employee)getIntent().getSerializableExtra("Employee");
 
+        //Initialize Tax deducter.
         try {
-            initTaxDeductor();
+            mTaxDeductorAdapter = new TaxDeductorAdapter(this,2019, "New Brunswick");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -111,39 +117,34 @@ public class GeneratePayrollActivity extends AppCompatActivity implements Adapte
 
         hoursWorked = findViewById(R.id.HoursWorked);
 
-
+        //Submit form data to run Payroll
         doneBtn = findViewById(R.id.Done_Btn);
         doneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent returnIntent = new Intent();
-                double hours = 0;
-                double gross = 0;
-                double net = 0;
-                double cpp = 0;
-                double ei = 0;
-                double federal = 0;
-                double provincial = 0;
 
-                SimpleDateFormat formatter = new SimpleDateFormat("mm/dd/yyyy");
+                DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
                 try {
                     mDate1 = formatter.parse(fromDate.getText().toString());
                     mDate2 = formatter.parse(toDate.getText().toString());
                     hours =  Double.parseDouble(hoursWorked.getText().toString());
+                    claimCode = Integer.parseInt(claimCodeSpinner.getSelectedItem().toString());
                 }catch (ParseException e){
                     e.getStackTrace();
                 }
                 try {
-                    gross = round((employee.getHourlyWage() * hours),2);
-                    cpp = mTaxDeductorAdapter.deductCPP(payPeriods, gross);
-                    ei = mTaxDeductorAdapter.calcEI(gross);
-                    federal = mTaxDeductorAdapter.deductFedTax(gross, payPeriods,claimCode);
-                    provincial = mTaxDeductorAdapter.deductProvTax("NB",payPeriods,gross,claimCode);
-                    net = round(gross - cpp - ei,2);
+                   double gross = round((employee.getHourlyWage() * hours),2);
+                   double cpp = mTaxDeductorAdapter.deductCPP(payPeriods, gross);
+                   double ei = mTaxDeductorAdapter.calcEI(gross);
+                   double federal = mTaxDeductorAdapter.deductFedTax(gross, payPeriods,claimCode);
+                   double provincial = mTaxDeductorAdapter.calcT4(payPeriods,gross,claimCode);
+                   double net = round(gross - cpp - ei,2);
+                    payrollObj = new Payroll(gross,net,ei,cpp,federal, provincial, mDate1,mDate2);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Payroll payrollObj = new Payroll(gross,net,ei,cpp,federal, provincial, mDate1,mDate2);
+
                 returnIntent.putExtra("Payroll", payrollObj);
                 returnIntent.putExtra("Position", position);
                 setResult(Activity.RESULT_OK, returnIntent);
@@ -160,10 +161,6 @@ public class GeneratePayrollActivity extends AppCompatActivity implements Adapte
         });
 
 
-    }
-
-    public void initTaxDeductor() throws IOException{
-        mTaxDeductorAdapter = new TaxDeductorAdapter(this);
     }
 
     @Override

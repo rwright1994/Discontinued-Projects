@@ -109,13 +109,13 @@ public class EditEmployeeActivity extends AppCompatActivity {
         mMiddleName.setText(mEmployee.getMiddleName(), TextView.BufferType.EDITABLE);
         mLastName.setText(mEmployee.getLastName(), TextView.BufferType.EDITABLE);
 
-        mUnitNum.setText(mEmployee.getAddressObj().getUnitNumber(), TextView.BufferType.EDITABLE);
-        mStreetNum.setText(mEmployee.getAddressObj().getStreetNumber(), TextView.BufferType.EDITABLE);
-        mStreetName.setText(mEmployee.getAddressObj().getUnitNumber(), TextView.BufferType.EDITABLE);
-        mCity.setText(mEmployee.getAddressObj().getCity(), TextView.BufferType.EDITABLE);
-        mProvince.setText(mEmployee.getAddressObj().getProvince(), TextView.BufferType.EDITABLE);
-        mPostalCode.setText(mEmployee.getAddressObj().getPostalCode(), TextView.BufferType.EDITABLE);
-        mCountry.setText(mEmployee.getAddressObj().getCountry(), TextView.BufferType.EDITABLE);
+        mUnitNum.setText(mEmployee.getAddress().getUnitNumber(), TextView.BufferType.EDITABLE);
+        mStreetNum.setText(mEmployee.getAddress().getStreetNumber(), TextView.BufferType.EDITABLE);
+        mStreetName.setText(mEmployee.getAddress().getUnitNumber(), TextView.BufferType.EDITABLE);
+        mCity.setText(mEmployee.getAddress().getCity(), TextView.BufferType.EDITABLE);
+        mProvince.setText(mEmployee.getAddress().getProvince(), TextView.BufferType.EDITABLE);
+        mPostalCode.setText(mEmployee.getAddress().getPostalCode(), TextView.BufferType.EDITABLE);
+        mCountry.setText(mEmployee.getAddress().getCountry(), TextView.BufferType.EDITABLE);
 
     }
 

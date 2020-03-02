@@ -14,8 +14,7 @@ public class Payroll implements Serializable {
 
     private Date startDate;
     private Date endDate;
-
-
+    
     public Payroll(double gross, double net, double EI, double CPP,double federal,double provincial, Date startDate, Date endDate) {
         this.gross = gross;
         this.net = net;
