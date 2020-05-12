@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import com.example.payroll.Main.Adapters.PayrollListAdapter;
 import com.example.payroll.Main.DataObjects.Employee;
-import com.example.payroll.Main.DataObjects.EmployeeCard;
 import com.example.payroll.Main.DataObjects.Payroll;
 import com.example.payroll.Main.DataObjects.PayrollCard;
 
@@ -71,10 +70,13 @@ public class EditPayrollActivity extends AppCompatActivity {
     private void buildPayrollCards(){
             for(int i = 0; i < mEmployee.getPayroll().size(); i++){
                 Payroll payrollToAdd = mEmployee.getPayroll().get(i);
-                mPayrollList.add(new PayrollCard(payrollToAdd.getGross()+"",payrollToAdd.getCpp()+"",
-                           payrollToAdd.getEI()+"",payrollToAdd.getFederal()+"",
-                        payrollToAdd.getProvincial()+"", payrollToAdd.getNet()+"",
-                                    payrollToAdd.getEndDate().toString()));
+                mPayrollList.add(new PayrollCard(payrollToAdd.getGross()+"",
+                                                  payrollToAdd.getCpp()+"",
+                                                    payrollToAdd.getEI()+"",
+                                                payrollToAdd.getFederal()+"",
+                                              payrollToAdd.getProvincial()+"",
+                                                    payrollToAdd.getNet()+"",
+                                                          payrollToAdd.getEndDate().toString()));
                 mAdapter.notifyDataSetChanged();
             }
 
