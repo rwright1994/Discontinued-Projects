@@ -1,0 +1,119 @@
+main{
+	background-color: grey;
+}
+
+img.resume-logo-item-cibc{
+	float: right;
+	width: 8%;
+	height: 8%;
+	margin-right:14%;
+}
+
+img.resume-logo-item-dw{
+	float: right;
+	width: 25%;
+	height: 25%;
+
+}
+
+img.resume-logo-item-walmart{
+	float: right;
+	width: 10%;
+	height: 10%;
+	margin-right:17%;
+}
+
+.resume-content-index{
+	margin: 2%;
+	padding: 5%;
+}
+
+
+.resume-content-wrapper{
+	display: flex;
+	color: white;
+	font-size: 1.5em;
+	width:100%;
+	padding: 2%;
+}
+.resume-content-wrapper-flex{
+	display: flex;
+	color: white;
+	width:80%;
+	margin: 4%;
+	padding: 2%;
+}
+
+.row-content{
+	display: block; 
+	color: white;
+	margin-left: auto;
+	margin-right: auto
+}
+
+#content-header{
+	width: 30%;
+	font-size: 2.0em;
+	font-family: Arial;
+}
+
+
+.resume-timestamp{
+	border-bottom: solid;
+	border-color: white;
+	border-width: 2px;
+	margin-left: 2%;
+	width:60%;
+	font-style: italic;
+}
+
+h4.resume-employer-content{
+	padding-left: 3%;
+	width: 80%;
+
+}
+ul {
+  margin: 0;
+}
+ul.dashed {
+  list-style-type: none;
+}
+ul.dashed > li {
+  text-indent: -5px;
+}
+ul.dashed > li:before {
+  content: "-";
+  text-indent: -5px;
+}
+
+.skill-list-container{
+	position:relative;
+	width: 40%;
+}
+
+ul#skill-list{
+	font-size: 1.5em;
+}
+
+
+
+li.resume-employer-desc-content{
+	list-style-type: decimal;
+}
+
+/*reworked css classses*/
+
+
+.row-wrapper{
+	display: block;
+}
+
+.col-wrapper-flex{
+	display: flex;
+	color:white;
+	margin: 2%;
+	padding: 3%;
+}
+.col-wrapper-block{
+	display: block;
+}

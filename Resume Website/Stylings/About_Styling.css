@@ -1,0 +1,27 @@
+.row{
+	display: flex;
+}
+
+.left-div{
+	flex:1;
+	width: 40%;
+	padding: 5%;
+	margin:5%;
+	float:left;
+}
+
+.right-div{
+	flex:1;
+	width:40%;
+	padding: 5%;
+	margin:5%;
+	float:right;
+	
+}
+
+.text-pair{
+	color: white;
+	position: relative;
+	top:25%;
+}
+

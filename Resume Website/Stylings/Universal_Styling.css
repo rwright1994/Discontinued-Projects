@@ -1,0 +1,70 @@
+header{
+	display: inline-block;
+	width: 100%;
+	height: 15%;
+	background-color: black;
+}
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+}
+
+.backdrop-center{
+	background: rgba(0,0,0,.7);
+	width:100%;
+	height:100%;
+}
+
+
+
+img.profile-picture{
+	width:75px;
+	height:75px;
+	float:left;
+	border-radius: 50%;
+	padding:4px;
+	margin:8px;
+}
+
+.horizontal-navbar-wrapper{
+	display: inline-block;
+	float: left;
+}
+
+.horizontal-navbar{
+	display: inline-block;
+	list-style-type: none;
+	margin:0px;
+	padding: 0px;
+	overflow:hidden;
+	float:left;
+}
+
+.horizontal-navbar-item{
+	float:left;
+	padding-top: 5%;
+}
+
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 16px 16px;
+	text-decoration: none;
+}
+
+li a:hover{
+	color: yellow;
+}
+
+.container{
+	margin-top: 5%;
+}
+
+
