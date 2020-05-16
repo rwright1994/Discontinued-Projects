@@ -1,18 +1,34 @@
+html{
+	position:relative;
+	min-height: 100%;
+}
+
+
+
 header{
 	display: inline-block;
 	width: 100%;
 	height: 15%;
 	background-color: black;
 }
-.footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   background-color: black;
-   color: white;
-   text-align: center;
+
+body{
+	margin: 0 0 100px;
 }
+
+
+
+
+footer {
+	position:absolute;
+   	left: 0;
+   	bottom: 0;
+   	width: 100%;
+   	background-color: black;
+   	color: white;
+   	text-align: center;
+}
+	
 
 .backdrop-center{
 	background-color:rgba(249,249,249);
@@ -64,5 +80,4 @@ li a:hover{
 .container{
 	margin-top: 5%;
 }
-
 
