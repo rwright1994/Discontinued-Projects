@@ -3,8 +3,6 @@ html{
 	min-height: 100%;
 }
 
-
-
 header{
 	display: inline-block;
 	width: 100%;
@@ -15,9 +13,9 @@ header{
 body{
 	margin: 0 0 100px;
 }
-
-
-
+ul{
+	list-style: none;
+}
 
 footer {
 	position:absolute;
@@ -29,12 +27,9 @@ footer {
    	text-align: center;
 }
 	
-
 .backdrop-center{
 	background-color:rgba(249,249,249);
 }
-
-
 
 img.profile-picture{
 	width:75px;
@@ -45,22 +40,16 @@ img.profile-picture{
 	margin:8px;
 }
 
-.horizontal-navbar-wrapper{
-	display: inline-block;
-	float: left;
-}
 
 .horizontal-navbar{
 	display: inline-block;
 	list-style-type: none;
-	margin:0px;
-	padding: 0px;
-	overflow:hidden;
-	float:left;
+	float: left;
 }
 
-.horizontal-navbar-item{
-	float:left;
+.horizontal-navbar li{
+	float: left;
+	font-size: 16px;
 	padding-top: 5%;
 }
 
@@ -77,7 +66,53 @@ li a:hover{
 	color: yellow;
 }
 
+
+.dropdown{
+	float: left;
+}
+
+
+
 .container{
 	margin-top: 5%;
+}
+
+
+.dropdown .dropdownbtn{
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+
+.dropdown-content{
+	display: none;
+	position: absolute;
+  	background-color: #f9f9f9;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+.dropdown-content a{
+	color: black;
+	border: solid black 1px;
+	
+}
+
+
+.dropdown-content a:hover {
+	color: red;
+}
+
+
+
+.dropdown:hover .dropdown-content{
+	display: block;
+	position: absolute;
+	min-width: 160px;
+	text-align: center;
 }
 

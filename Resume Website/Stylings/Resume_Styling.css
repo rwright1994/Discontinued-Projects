@@ -48,21 +48,13 @@ img.resume-logo-item-walmart{
 	margin-right: auto
 }
 
-#content-header{
-	width: 30%;
-	font-size: 2.0em;
-	font-family: Arial;
-}
-
-
-
 
 h4.resume-employer-content{
 	padding-left: 3%;
 	width: 80%;
 
 }
-ul {
+ul.dashed {
   margin: 0;
 	font-size:16px;
 }
@@ -148,7 +140,3 @@ h3.left-side-header{
 
 /* Education Stylings */
 
-.education-container{
-	flex:1;
-	margin-left: 5%;	
-} 
