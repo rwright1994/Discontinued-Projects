@@ -1,0 +1,29 @@
+/*Index Styling.*/
+
+.index-item-wrapper{
+	display: inline-block;
+	margin: 5%;
+}
+
+.img-wrapper{
+	
+	width:50%;
+	padding: 5%;
+	float:left;
+}
+
+.image-text-pair-wrapper{
+	display:inline-block;
+	background-color:red;
+	width:50%;
+	float:right;
+}
+
+#index-img-A{
+	
+	width:100%;
+	height:100%;
+	display:inline-block;
+	float:left;
+}
+
