@@ -15,23 +15,22 @@
 		</head>
 
 		<header>
-
 					<div style="float: left; height: 100px;"><a href="About.html"><img class="profile-picture" src="Images/Photo.jpg"></a></div>
-					<div class="horizontal-navbar">
-					<ul>
-						<li><a href="Home.html">Home</a></li>
-						<li><a href="About.html">About</a></li>
-						<li><a href="Resume.html">Resume</a></li>
-						<li>
-							<div class="dropdown" style="color:white;"> <a class="dropdownbtn" href="Programs.html">Programs<i class="fa fa-caret-down" style="padding-left: 5px;"></i></a>
-								<div class= "dropdown-content">
-									<a href="Mine Sweeper.html">Mine Sweeper</a>
-									<a href="Mine Sweeper.html">Battleship</a>
-								</div>
-							</div>
-						</li>
-						<li class="horizontal-navbar-item"><a href="Contact.html">Contact</a></li>
-					</ul>
+					<div class="horizontal-navbar-outer">
+						<div class="horizontal-navbar-inner">
+							<ul class="horizontal-navbar">
+								<li><a href="Home.html">Home</a></li>
+								<li><a href="About.html">About</a></li>
+								<li><a href="Resume.html">Resume</a></li>
+								<li>	<div class="dropdown" style="color:white;"> <a class="dropdownbtn" href="Programs.html">Programs<i class="fa fa-caret-down" style="padding-left: 5px;"></i></a>
+										<div class= "dropdown-content">
+											<a href="Mine Sweeper.html">Mine Sweeper</a>
+											<a href="Mine Sweeper.html">Battleship</a>
+										</div>
+									</div></li>
+								<li class="horizontal-navbar-item"><a href="Contact.html">Contact</a></li>
+							</ul>
+						</div>
 				</div>
 		</header>
 
@@ -95,15 +94,17 @@
   		</body>
 	</main>
 	<footer>
-		<p>&copy; Copyright 2019 HTML</p>
-			<div  style="margin-left:35%;">
-				<ul  class="horizontal-navbar">
-					<li class="horizontal-navbar-item"><a href="Home.html">Home</a></li>
-					<li class="horizontal-navbar-item"><a href="About.html">About</a></li>
-					<li class="horizontal-navbar-item"><a href="Resume.html">Resume</a></li>
-					<li class="horizontal-navbar-item"><a href="Programs.html">Programs</a> </li>
-					<li class="horizontal-navbar-item"><a href="Contact.html">Contact</a></li>
-				</ul>
+		<p id="copyright">&copy; Copyright 2019 HTML</p>
+			<div class="horizontal-navbar-outer" >
+				<div class="horizontal-navbar-inner">
+					<ul class="horizontal-navbar">
+						<li><a href="Home.html">Home</a></li>
+						<li><a href="About.html">About</a></li>
+						<li><a href="Resume.html">Resume</a></li>
+						<li><a href="Programs.html">Programs</a> </li>
+						<li><a href="Contact.html">Contact</a></li>
+					</ul>
 			</div>
-		</footer>
+		</div>
+	</footer>
 </html>

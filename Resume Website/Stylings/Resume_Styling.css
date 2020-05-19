@@ -2,6 +2,7 @@ main{
 	background-color: white;
 }
 
+/*Logo adjustments*/
 img.resume-logo-item-cibc{
 	float: right;
 	width: 8%;
@@ -28,7 +29,6 @@ img.resume-logo-item-walmart{
 	padding: 5%;
 }
 
-
 .resume-content-wrapper{
 	display: flex;	
 	font-size: 1.5em;
@@ -52,24 +52,24 @@ img.resume-logo-item-walmart{
 h4.resume-employer-content{
 	padding-left: 3%;
 	width: 80%;
-
 }
+
+/* Dash bullet point list for describing roles*/
 ul.dashed {
-  margin: 0;
+  	margin: 0;	
 	font-size:16px;
 }
+
 ul.dashed {
-  list-style-type: none;
+  	list-style-type: none;
 }
 ul.dashed > li {
-  text-indent: -5px;
+  	text-indent: -5px;
 }
 ul.dashed > li:before {
-  content: "-";
-  text-indent: -5px;
-}
-
-
+ 	 content: "-";
+  	text-indent: -5px;
+}	
 
 ul#skill-list{
 	font-size: 1.5em;
@@ -88,6 +88,7 @@ li.resume-employer-desc-content{
 .resume-item-container{
 	display:block;
 	margin-left:7%;
+	overflow:hidden;
 }
 
 h3.resume-job-position-title{
@@ -139,4 +140,8 @@ h3.left-side-header{
 }
 
 /* Education Stylings */
+
+.education-container{
+	margin-left: 5%;
+}
 
