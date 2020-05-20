@@ -1,3 +1,15 @@
+/*About page stylings.*/
+
+
+.about-page-content{
+	display: inline-block;
+	padding:5%;
+	padding-top:8	%;
+	padding-bottom:10%;
+	text-align: center;
+	background-color:rgba(214, 214, 214, 0.44);
+}	
+
 .row{
 	display: flex;
 }
@@ -7,20 +19,41 @@
 	width: 40%;
 	padding: 5%;
 	margin:5%;
-	float:left;
+	
 }
 
 .right-div{
 	flex:1;
 	width:40%;
-	padding: 5%;
-	margin:5%;
-	float:right;
 	
 }
 
 .text-pair{
+	word-wrap: break-word;
+	text-align: left;
+	font-family: "Lucida Console", Courier, monospace;
+	font-weight: 400;
+	letter-spacing: 0.1em;
+	line-height: 2em;
 	position: relative;
 	top:25%;
+	padding-top: 5%;
 }
+
+.resume-btn-wrapper{
+	padding:2%;
+}
+
+
+
+#resume-btn{
+	color: black;
+	transition:0.3s;
+}
+
+#resume-btn:hover{
+	color: white;
+	background-color: black;
+}
+
 
