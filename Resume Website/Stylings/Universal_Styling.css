@@ -126,6 +126,10 @@ li a:hover{
 
 /* Floating Action Button footer items.*/
 
+#copyright{
+	display: inline-block;
+	
+}
 
 .fa-linkedin-in {
 	color:white;
