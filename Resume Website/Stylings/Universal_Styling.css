@@ -131,8 +131,31 @@ li a:hover{
 	
 }
 
-.fa-linkedin-in {
-	color:white;
+footer{
+	overflow:hidden;
+}
+
+
+.external-links-block{
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+	padding: 16px;
+	
+}
+
+.fab{
+	color: white;
+}
+
+.fab-icon{
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+.fab-icon:hover{
+	opacity: 0.60;
+	
 }
 
 /* Footer content (End) */

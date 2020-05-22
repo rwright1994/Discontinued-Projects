@@ -3,7 +3,7 @@
 	display: flex;
 	text-align: center;
 	padding: 5%;
-	padding-top:10%;
+	padding-top:8%;
 	background-color:rgba(214, 214, 214, 0.44);	
 }
 
@@ -13,7 +13,8 @@
 	text-align: center;
 	color: white;
 	width:100%;
-	padding:2%;
+	padding-top:2%;
+	padding-bottom: 2%;
 	background-color:rgba(0, 0, 0, 0.91)	
 }
 
@@ -70,15 +71,44 @@
 	color: black;
 }
 
+.contactbtn-wrapper{
+	display: inline-block;
+	text-align: center;
+	width:100%;
+	padding-top:5%;
+}
 
+
+
+/*Contact me styling by ID*/
+#contactbtn{
+	display: inline-block;
+	border: solid black 1px;
+	padding: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	transition: 0.3s;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: "Times New Roman", Times, serif;
+	color: black;
+	
+}
+
+#contactbtn:hover{
+	background-color:black;
+	color: white;
+}
 
 .img-wrapper{
 	padding: 7%;	
 }
 
 .image-text-pair-wrapper{
+	display: inline-block
 	word-wrap: break-word;
 	text-align: left;
+	width: 100%;	
 	font-family: "Lucida Console", Courier, monospace;
 	font-weight: 400;
 	letter-spacing: 0.1em;
@@ -90,7 +120,5 @@
 
 #index-img-A{
 	width: 100%;
-	
-	
 }
 
