@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 	<html>
 		<head>
+
 			<meta charset="UTF-8">
 			<meta http-equiv="X-UA-Comptible" content="IE=edge">
 
@@ -9,8 +10,9 @@
 			<script src="https://kit.fontawesome.com/aa6dce0a1e.js" crossorigin="anonymous"></script>
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+			<script src="Programs/Minesweeper.js"></script>
 			<link rel="stylesheet" href="Stylings/Universal_Styling.css" type="text/css">
-			<link rel="stylesheet" href="Stylings/About_Styling.css" type="text/css">
+			<link rel="stylesheet" href="Stylings/Minesweeper_Styling.css" type="text/css">
 
 		</head>
 
@@ -33,6 +35,10 @@
 						</div>
 				</div>
 		</header>
+
+		<div class="canvas-container">
+			<canvas id="gameBoard" onload="startGame()">  </canvas>
+		</div>
 
     <!-- Footer Start. -->
     			<footer>

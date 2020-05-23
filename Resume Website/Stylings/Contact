@@ -1,0 +1,10 @@
+.general-contact-btn{
+	color:white;
+	text-decoration: none;
+	display:inline-block; 
+	border:solid 1px rgb(219, 229, 25); 
+	padding: 8px;
+	padding-left: 16px;
+	padding-right:16px;
+	transition: 0.4s;
+}

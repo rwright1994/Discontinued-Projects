@@ -1,7 +1,11 @@
 html{
 	position:relative;
 	min-height: 100%;
-	
+}
+
+main{
+	flex: 1 0 auto;
+	height:90%;	
 }
 
 section{
@@ -9,18 +13,11 @@ section{
 }
 
 body{
-	margin: 0 0 100px;
+	margin:0;
+	padding-bottom:170px;
 }
 
-footer {
-	position:absolute;
-   	left: 0;
-   	bottom: 0;
-   	width: 100%;
-   	background-color: rgba(0,0,0,0.91);
-   	color: white;
-   	text-align: center;
-}
+
 	
 .backdrop-center{
 	background-color:rgba(249,249,249);
@@ -47,7 +44,7 @@ header{
 
 /* Navigation bar (Start) */
 .horizontal-navbar-outer{
-	text-align:center;
+	text-align: center;
 	list-style-type: none;
 	
 }
@@ -57,7 +54,7 @@ header{
 }
 
 .horizontal-navbar li{
-	display:inline-block;
+	display: inline-block;
 	font-size: 16px;
 }
 
@@ -122,7 +119,30 @@ li a:hover{
 
 /* Footer content (Start) */
 
+footer {
+	position: absolute;
+	height:170;
+	bottom: 0;
+   	width: 100%;
+   	background-color: rgba(0,0,0,0.91);
+   	color: white;
+	overflow: hidden;
+   	text-align: center;
+}
 
+@media screen and (max-width: 767px){
+	
+	body{
+		padding-bottom:0;
+	}
+
+	footer{
+		position: relative;
+		top: auto;
+		left: auto;
+		height: auto;
+	}
+}
 
 /* Floating Action Button footer items.*/
 
@@ -131,9 +151,9 @@ li a:hover{
 	
 }
 
-footer{
-	overflow:hidden;
-}
+.footer-navbar-warpper{
+	display: absolute;
+}	
 
 
 .external-links-block{
