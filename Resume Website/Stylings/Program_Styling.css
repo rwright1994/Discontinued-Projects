@@ -1,0 +1,21 @@
+main{
+	padding: 5%;
+}
+
+.program-wrapper-tab{
+	border: solid 1px black;
+	padding: 24px;
+	margin: 16px;
+	margin-bottom: 32px;
+}
+
+.game-logo-wrapper{
+	margin:5px;
+}
+
+.game-logo-tab{
+	width:125px;
+	height:125px;
+	padding:16px;	
+}
+
