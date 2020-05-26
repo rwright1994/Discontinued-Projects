@@ -1,21 +1,18 @@
+
 <!DOCTYPE html>
 	<html>
+
 		<head>
-
-			<meta charset="UTF-8">
-			<meta http-equiv="X-UA-Comptible" content="IE=edge">
-
 			<title>Robert Wright - Resume</title>
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<meta charset="utf-8">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 			<script src="https://kit.fontawesome.com/aa6dce0a1e.js" crossorigin="anonymous"></script>
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-			<script src="Programs/Minesweeper.js"></script>
+			<script src="Programs/Minesweeper.js"> </script>
 			<link rel="stylesheet" href="Stylings/Universal_Styling.css" type="text/css">
 			<link rel="stylesheet" href="Stylings/Minesweeper_Styling.css" type="text/css">
-
 		</head>
 
+	<body class="backdrop-center" onload="startGame()">
 		<header>
 					<div style="float: left; height: 100px;"><a href="About.html"><img class="profile-picture" src="Images/Photo.jpg"></a></div>
 					<div class="horizontal-navbar-outer">
@@ -36,34 +33,43 @@
 				</div>
 		</header>
 
-		<div class="canvas-container">
-			<canvas id="gameBoard" onload="startGame()">  </canvas>
-		</div>
+<div class="game-container">
 
-    <!-- Footer Start. -->
-    			<footer>
+	<div class="game-status-bar">
+		Minesweeper
+		<button> reset </button>
+	</div>
 
-    					<div  class="horizontal-navbar-outer bottom-navbar" >
-    						<div class="horizontal-navbar-inner">
-    							<ul class="horizontal-navbar">
-    								<li><a href="Home.html">Home</a></li>
-    								<li><a href="About.html">About</a></li>
-    								<li><a href="Resume.html">Resume</a></li>
-    								<li><a href="Programs.html">Programs</a> </li>
-    								<li><a href="Contact.html">Contact</a></li>
-    							</ul>
-    					</div>
-    				</div>
+		 <div class="game-board-container">
+		<canvas id="gameBoard" > </canvas>
+	</div>
+</div>
 
-    				<div id="copyright-footer" >&copy; Copyright 2019 HTML</div>
-    				<div class="external-links-block">
-    					<a class="fab-icon" href="https://www.linkedin.com/in/rswright94/">	<i class="fab fa-linkedin fa-2x"></i> </a>
-    					<a class="fab-icon" href="https://www.facebook.com/robert.s.wright.52"> <i class="fab fa-facebook-square fa-2x" ></i> </a>
-    					<a class="fab-icon" href="https://github.com/rwright1994"><i class="fab fa-github-square fa-2x" ></i></a>
-    					<a class="fab-icon" href="mailto:robert_steven_wright@hotmail.com"> <i class="fas fa-envelope-square fa-2x" style="color:white;"></i></a>
+<!-- Footer Start. -->
+			<footer>
 
-    				</div>
-    			</footer>
-    <!-- Footer Ends. -->
+					<div  class="horizontal-navbar-outer bottom-navbar" >
+						<div class="horizontal-navbar-inner">
+							<ul class="horizontal-navbar">
+								<li><a href="Home.html">Home</a></li>
+								<li><a href="About.html">About</a></li>
+								<li><a href="Resume.html">Resume</a></li>
+								<li><a href="Programs.html">Programs</a> </li>
+								<li><a href="Contact.html">Contact</a></li>
+							</ul>
+					</div>
+				</div>
 
-    </html>
+				<div id="copyright-footer" >&copy; Copyright 2019 HTML</div>
+				<div class="external-links-block">
+					<a class="fab-icon" href="https://www.linkedin.com/in/rswright94/">	<i class="fab fa-linkedin fa-2x"></i> </a>
+					<a class="fab-icon" href="https://www.facebook.com/robert.s.wright.52"> <i class="fab fa-facebook-square fa-2x" ></i> </a>
+					<a class="fab-icon" href="https://github.com/rwright1994"><i class="fab fa-github-square fa-2x" ></i></a>
+					<a class="fab-icon" href="mailto:robert_steven_wright@hotmail.com"> <i class="fas fa-envelope-square fa-2x" style="color:white;"></i></a>
+
+				</div>
+			</footer>
+<!-- Footer Ends. -->
+</body>
+
+</html>

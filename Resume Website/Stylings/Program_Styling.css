@@ -3,14 +3,36 @@ main{
 }
 
 .program-wrapper-tab{
-	border: solid 1px black;
+	display: flex;
+	border-left: 14px solid rgb(219, 229, 25); ;
+	border-radius: 40px;
 	padding: 24px;
 	margin: 16px;
 	margin-bottom: 32px;
+	color:	white;
+	background-color:rgba(0, 0, 0, 0.91);
+	transition: 0.4s;
 }
 
+.program-wrapper-tab:hover{
+	background-color: rgb(219, 229, 25); 
+	color: black;
+	box-shadow: 5px 15px black;
+}
+
+.program-wrapper-tab:hover > .game-desc-wrapper{
+	color: black;
+}
+
+
 .game-logo-wrapper{
-	margin:5px;
+	margin:5px;	
+}
+
+.game-desc-wrapper{
+	display: inline-block;
+	padding-left:5%;
+	width:80%;
 }
 
 .game-logo-tab{
@@ -18,4 +40,5 @@ main{
 	height:125px;
 	padding:16px;	
 }
+
 

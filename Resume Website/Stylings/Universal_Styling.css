@@ -1,11 +1,14 @@
 html{
-	position:relative;
+	position: relative;
+	margin:0;
 	min-height: 100%;
+	
 }
+
 
 main{
 	flex: 1 0 auto;
-	height:90%;	
+	height:100%;	
 }
 
 section{
@@ -13,14 +16,17 @@ section{
 }
 
 body{
+
 	margin:0;
 	padding-bottom:170px;
+	
 }
 
 
 	
 .backdrop-center{
 	background-color:rgba(249,249,249);
+
 }
 
 
@@ -28,7 +34,7 @@ body{
 img.profile-picture{
 	width:75px;
 	height:75px;
-	float:left;
+	float: left;
 	border-radius: 50%;
 	padding:4px;
 	margin:8px;
@@ -59,7 +65,7 @@ header{
 }
 
 ul{
-	float:left;
+	float: left;
 	list-style: none;
 }
 

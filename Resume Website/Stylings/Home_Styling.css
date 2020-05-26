@@ -54,10 +54,10 @@
 
 /*Mini projects banner sylings by ID. */
 #mini-projects-btn{
-	color:white;
+	color: white;
 	text-decoration: none;
-	display:inline-block; 
-	border:solid 1px rgb(219, 229, 25); 
+	display: inline-block; 
+	border: solid 1px rgb(219, 229, 25); 
 	padding: 8px;
 	padding-left: 16px;
 	padding-right:16px;
@@ -96,7 +96,7 @@
 }
 
 #contactbtn:hover{
-	background-color:black;
+	background-color: black;
 	color: white;
 }
 

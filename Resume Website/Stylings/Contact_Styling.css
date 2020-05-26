@@ -37,12 +37,11 @@
 	display: inline-block;
 	overflow: hidden;
 	padding: 8px;
-	max-height:inherit;
+	max-height: inherit;
 	transition: 0.4s;
 }
 
 .general-contact-btn:hover > #card-content{
-
 	color: black;
 }
 
