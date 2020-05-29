@@ -3,7 +3,7 @@
 	<html>
 
 		<head>
-			<title>Robert Wright - Resume</title>
+			<title>Minesweeper</title>
 			<meta charset="utf-8">
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 			<script src="https://kit.fontawesome.com/aa6dce0a1e.js" crossorigin="anonymous"></script>
@@ -35,10 +35,16 @@
 
 <div class="game-container">
 
-	<div class="game-status-bar">
-		Minesweeper
-		<button> reset </button>
+
+	<div class="title-container">
+		<h3> Minesweeper </h3>
 	</div>
+	<div class="game-info-container">
+		<span> <p id="flag-counter"> Flags: </p> </span>
+		<span> <button id="reset-button" onclick="reset()"> Reset </button> </span>
+		<span> <p id="timer"> Timer: </p> </span>
+	</div>
+
 
 		 <div class="game-board-container">
 		<canvas id="gameBoard" > </canvas>
