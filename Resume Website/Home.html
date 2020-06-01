@@ -24,12 +24,13 @@
 					<div class="horizontal-navbar-outer">
 							<div class="menu-button-container"> <a class="menu-button" onclick="openNav()"> &#9776; </a> </div>
 							<div class="profile-img-container"><a href="About.html"><img class="profile-picture" src="Images/Photo.jpg"></a></div>
-						<div class="horizontal-navbar-inner">
+						<div id="navbar" class="horizontal-navbar-inner">
 							<ul  class="horizontal-navbar">
+								<a class="close-button" onclick="closeNav()"> &times;</a>
 								<li><a href="Home.html">Home</a></li>
 								<li><a href="About.html">About</a></li>
 								<li><a href="Resume.html">Resume</a></li>
-								<li>	<div class="dropdown" style="color:white;"> <a class="dropdownbtn" href="Programs.html">Programs<i class="fa fa-caret-down" style="padding-left: 5px;"></i></a>
+								<li>	<div class="dropdown" style="color:white;"> <a class="dropdownbtn" href="Programs.html">Programs<i class="fa fa-caret-down dropdown-arrow" style="padding-left: 5px;"></i></a>
 										<div class= "dropdown-content">
 											<a href="Minesweeper.html">Mine Sweeper</a>
 											<a href="Minesweeper.html">Battleship</a>

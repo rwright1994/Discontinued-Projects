@@ -25,7 +25,10 @@ body{
 
 /*Changes profile picutre to a circle */
 
-
+	.profile-img-container{
+		display: inline-block;
+		float: left;
+	}
 
 	img.profile-picture{
 		width:75px;
@@ -126,18 +129,18 @@ body{
 		text-align: center;
 	}
 
-@media screen and (max-width: 572px){
+@media screen and (max-width: 600px){
 	
 
 	header{
-		height:100px;
+		height:120px;
 	}
 
 	.menu-button-container{
 		display: inline-block;
 		float: left;
 		font-size: 40px;
-		margin:5%
+		height:120px;
 	}
 	
 
@@ -145,24 +148,27 @@ body{
 		display: inline-block;
 		color: white;
 		cursor: pointer;
-		float: right;	
+		float: right;
+		padding:25px;	
 	}
 
 
-	img.profile-img-container{
+	.profile-img-container{
 		display: inline-block;
-		
+		float: right;
 	}
 
 	.horizontal-navbar-inner{
 		height: 100%;
-		width: 0;
-		display: fixed;
-		z-index: 1;
-		top:0;
-		left: 0;
-		background-color: red;
-		overflow: hidden;
+  		width: 0;
+  		position: fixed;
+  		z-index: 1;
+  		top: 0;
+  		left: 0;
+  		background-color: #111;
+  		overflow-x: hidden;
+  		transition: 0.5s;
+ 		padding-top: 60px;
 	}
 
 	.horizontal-navbar-outer{
@@ -170,13 +176,32 @@ body{
 	}	
 
 	.horizontal-navbar{
-		height:100%;
-		width: 0;
-		display: fixed;
-		top:0;
-		left: 0;
-		background-color: red;
+		padding: 8px 8px 8px 32px;
+ 		text-decoration: none;
+ 		font-size: 25px;
+ 		color: #818181;
+		display: block;
+		transition: 0.3s;
 	}
+
+	.horizontal-navbar .close-button{
+		position: absolute;
+  		top: 0;
+  		right: 25px;
+  		font-size: 36px;
+ 		margin-left: 50px;
+		cursor: pointer;
+	}
+
+	.dropdown-arrow{
+		display: none;	
+	}
+	
+	.dropdown:hover .dropdown-content{
+		display:none;
+	}
+
+	
 }
 
 /* Navigation bar (End)*/
@@ -215,20 +240,17 @@ body{
 
 	#copyright{
 		display: inline-block;
-		
 	}
 	
 	.footer-navbar-warpper{
 		display: absolute;
 	}	
-	
-	
+		
 	.external-links-block{
 		display: inline-block;
 		text-align: center;
 		width: 100%;
 		padding: 16px;
-		
 	}
 	
 	.fab{
@@ -243,5 +265,7 @@ body{
 	.fab-icon:hover{
 		opacity: 0.60;
 	}
+
+		
 
 /* Footer content (End) */
