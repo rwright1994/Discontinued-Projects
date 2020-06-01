@@ -7,6 +7,38 @@
 	background-color:rgba(214, 214, 214, 0.44);	
 }
 
+@media screen and (max-width:320px){
+	
+	.index-item-wrapper{
+		flex-direction: column;
+	}
+}
+
+@media screen and (min-width:321px) and (max-width:375px){
+
+	.index-item-wrapper{
+		flex-direction: column;
+	}
+
+
+}
+
+@media screen and (min-width:376px) and (max-width: 425px){
+
+	.index-item-wrapper{
+		flex-direction: column;
+	}
+
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px){
+
+	.index-item-wrapper{
+		flex-direction: column;
+	}
+
+}
+
 /* Alternate inline block banner dark-light shade*/
 .index-item-wrapper-alt-lightshade{
 	display: inline-block;
@@ -30,7 +62,12 @@
 	width:75%;
 }
 
+.index-projects-blocks-wrapper{
+	display:flex;
+}
+
 .index-projects-banner-blocks{
+	flex:1;
 	display: inline-block;
 	font-size: 20	px;
 	text-align: center;

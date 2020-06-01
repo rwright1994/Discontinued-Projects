@@ -8,7 +8,7 @@
 		<head>
 			<title> Resume - Home </title>
 			<meta charset="utf-8">
-		  	<meta name="viewport" content="width=device-width, initial-scale=1">
+		  	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 				<script src="https://kit.fontawesome.com/aa6dce0a1e.js" crossorigin="anonymous"></script>
   			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -20,10 +20,12 @@
 	<body class="backdrop-center">
 <!--Header & navivation bar. -->
 		<header>
-					<div style="float: left; height: 100px;"><a href="About.html"><img class="profile-picture" src="Images/Photo.jpg"></a></div>
+
 					<div class="horizontal-navbar-outer">
+							<div class="menu-button-container"> <a class="menu-button" onclick="openNav()"> &#9776; </a> </div>
+							<div class="profile-img-container"><a href="About.html"><img class="profile-picture" src="Images/Photo.jpg"></a></div>
 						<div class="horizontal-navbar-inner">
-							<ul class="horizontal-navbar">
+							<ul  class="horizontal-navbar">
 								<li><a href="Home.html">Home</a></li>
 								<li><a href="About.html">About</a></li>
 								<li><a href="Resume.html">Resume</a></li>
@@ -61,7 +63,9 @@
 						<h1>Take a gander at some of my various coding projects. Keep in mind these are from different points in my education and personal experience.</h1>
 					</div>
 
+
 					<div class="index-banner-clear"></div>
+					<div class="index-projects-blocks-wrapper">
 						<div class="index-projects-banner-blocks">
 							<h3 class="light-green"> School Projects</h3>
 							<p class="mini-projects-block-text"> These are some revised projects that were completed during my education.</p>
@@ -69,6 +73,7 @@
 						<a id="mini-projects-btn" href="Programs.html">School Projects</a>
 						</div>
 					</div>
+
 					<div class="index-projects-banner-blocks">
 						<h3 class="light-green"> Code Snippets </h3>
 						<p class="mini-projects-block-text"> Personal projects that I am currently working on. These are just code snippets.</p>
@@ -76,6 +81,7 @@
 						<a id="mini-projects-btn" href="Programs.html">My Projects</a>
 					</div>
 				</div>
+			</div>
 			</div>
 		</div>
 
