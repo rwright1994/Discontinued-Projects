@@ -10,31 +10,36 @@
 			<script src="https://kit.fontawesome.com/aa6dce0a1e.js" crossorigin="anonymous"></script>
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+			<script src="JavaScripts/UniversalScript.js"></script>
 			<link rel="stylesheet" href="Stylings/Universal_Styling.css" type="text/css">
 			<link rel="stylesheet" href="Stylings/About_Styling.css" type="text/css">
 
 		</head>
 
 <body class="backdrop-center">
-		<header>
-					<div style="float: left; height: 100px;"><a href="About.html"><img class="profile-picture" src="Images/Photo.jpg"></a></div>
-					<div class="horizontal-navbar-outer">
-						<div class="horizontal-navbar-inner">
-							<ul class="horizontal-navbar">
-								<li><a href="Home.html">Home</a></li>
-								<li><a href="About.html">About</a></li>
-								<li><a href="Resume.html">Resume</a></li>
-								<li>	<div class="dropdown" style="color:white;"> <a class="dropdownbtn" href="Programs.html">Programs<i class="fa fa-caret-down" style="padding-left: 5px;"></i></a>
-										<div class= "dropdown-content">
-											<a href="Minesweeper.html">Mine Sweeper</a>
-											<a href="Minesweeper.html">Battleship</a>
-										</div>
-									</div></li>
-								<li class="horizontal-navbar-item"><a href="Contact.html">Contact</a></li>
-							</ul>
-						</div>
-				</div>
-		</header>
+	<!--Header & navivation bar. -->
+	<header>
+
+				<div class="horizontal-navbar-outer">
+						<div class="menu-button-container"> <a class="menu-button" onclick="openNav()"> &#9776; </a> </div>
+						<div class="profile-img-container"><a href="About.html"><img class="profile-picture" src="Images/Photo.jpg"></a></div>
+					<div id="navbar" class="horizontal-navbar-inner">
+						<ul  class="horizontal-navbar">
+							<a class="close-button" onclick="closeNav()"> &times;</a>
+							<li><a href="Home.html">Home</a></li>
+							<li><a href="About.html">About</a></li>
+							<li><a href="Resume.html">Resume</a></li>
+							<li>	<div class="dropdown" style="color:white;"> <a class="dropdownbtn" href="Programs.html">Programs<i class="fa fa-caret-down dropdown-arrow" style="padding-left: 5px;"></i></a>
+									<div class= "dropdown-content">
+										<a href="Minesweeper.html">Mine Sweeper</a>
+										<a href="Minesweeper.html">Battleship</a>
+									</div>
+								</div></li>
+							<li class="horizontal-navbar-item"><a href="Contact.html">Contact</a></li>
+						</ul>
+					</div>
+			</div>
+	</header>
 
 <main>
 

@@ -60,6 +60,10 @@ body{
 		display: none;
 	}
 
+	.close-button{
+		display: none;
+	}
+
 	.horizontal-navbar-outer{
 		text-align: center;
 		list-style-type: none;	
@@ -150,6 +154,10 @@ body{
 		cursor: pointer;
 		float: right;
 		padding:25px;	
+	}
+
+	.close-button{
+		display:inline-block;
 	}
 
 
