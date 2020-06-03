@@ -11,6 +11,8 @@ var timerDisplay;
 var timer;
 var seconds = 0;
 
+var covered;
+
 
 //block dimensions.
 var blockWidth;
@@ -22,10 +24,12 @@ var flagImg;
 var numberImgs = [];
 
 
+
+//Starts the game on the given difficulty.
 function startGame(){
 
   let canvas = document.getElementById("gameBoard");
-  document.getElementById("gameBoard").addEventListener('click', reveal);
+  document.getElementById("gameBoard").addEventListener('click', onClick);
   document.getElementById("gameBoard").addEventListener('contextmenu', placeFlag);
   flagCounterDisplay = document.getElementById("flag-counter");
   timerDisplay = document.getElementById("timer");
@@ -43,6 +47,7 @@ function startGame(){
     spaces = 8;
     minesToPlace = 10;
     flags = 10;
+    covered = spaces * spaces - minesToPlace;
     initBoard(spaces,minesToPlace);
     flagCounterDisplay.innerHTML = "Flags: " + flags;
   }
@@ -61,6 +66,7 @@ function startGame(){
       ctx.stroke();
     }
   }
+  
   timerDisplay.innerHTML = "Timer: 0";
   seconds = 0;
   timer = setInterval(incrementTimer, 1000);
@@ -79,6 +85,7 @@ function reset(){
   startGame();
 }
 
+//initalizes the game board.
 function initBoard(spaces, minesToPlace){
 
   let x;
@@ -96,6 +103,7 @@ function initBoard(spaces, minesToPlace){
 
 }
 
+//Initalize game resources for drawing.
 function initResources(){
 
   mineImg = new Image();
@@ -112,42 +120,137 @@ function initResources(){
   }
 }
 
+//On click get mouse position and call reveal.
+function onClick(e){
+
+  xPos = Math.floor(e.offsetX/74);
+  yPos = Math.floor(e.offsetY/74);
+
+  reveal(xPos,yPos);
+
+function incrementTimer(){
+}
+
+//increments game timer.
 function incrementTimer(){
   seconds += 1;
   timerDisplay.innerHTML = "Time: " + seconds;
 }
 
-function reveal(e){
+//Reveals a given space.
+function reveal(xPos,yPos){
+
+
+  if(xPos >= 0  && yPos >= 0 && gameOver == false && covered > 0){
+
+    if(board[xPos][yPos] == 9){
+      gameOver = true;
+      revealMines();
+    }else if(board[xPos][yPos] == 0){
+      uncoverSpace(xPos,yPos);
+    }
+  }
+}
+
+//Called when player clicks on a spaces. (called recursivly)
+function uncoverSpace(xPos, yPos){
+
+  let ctx = document.getElementById("gameBoard").getContext("2d");
+
+  if(board[xPos][yPos] != -1 ){
+      covered--;
+      if(countMines(xPos,yPos) == 0){
+
+        ctx.clearRect(blockWidth * xPos +1, blockHeight * yPos +1, blockWidth-1,blockHeight-1);
+        ctx.fillStyle = "#2e2b2b";
+        ctx.fillRect(blockWidth * xPos +1, blockHeight * yPos +1, blockWidth-1,blockHeight-1);
+        board[xPos][yPos] = -1;
+          if(xPos - 1 >= 0){ //recurse left
+            uncoverSpace(xPos-1,yPos);
+          }
+          if(xPos + 1 <= 7){ //recurse right
+            uncoverSpace(xPos+1,yPos);
+          }
+          if(yPos - 1 >= 0){ //recurse up
+            uncoverSpace(xPos,yPos-1);
+          }
+          if(yPos + 1 <= 7){ //recurse down
+            uncoverSpace(xPos,yPos+1);
+          }
+      }else if(countMines(xPos,yPos) > 0){ //replace tile with numbered tile. Do not recurse
+        ctx.drawImage(numberImgs[countMines(xPos,yPos)-1] ,blockWidth * xPos + 1, blockHeight * yPos + 1, blockWidth - 1, blockHeight - 1);
+        board[xPos][yPos] = -1;
+      }
+  }
+
+}
+
+//Count the number of mines around a given tile.
+function countMines(xPos, yPos){
+    let count = 0;
+
+    if(xPos - 1 >= 0){ //left
+      if(board[xPos-1][yPos] == 9 || board[xPos-1][yPos] == 19){
+          count++;
+      }
+    }
+    if(xPos - 1 >= 0 && yPos - 1 >= 0){// top-left
+      if(board[xPos-1][yPos-1] == 9 || board[xPos-1][yPos-1] == 19){
+        count++;
+      }
+    }
+    if(yPos - 1 >= 0){ //top
+      if(board[xPos][yPos-1] == 9 || board[xPos][yPos-1] == 19){
+        count++;
+      }
+    }
+    if(xPos + 1 <= 7 && yPos - 1 >= 0){ //top-right
+      if(board[xPos+1][yPos-1] == 9 || board[xPos+1][yPos-1] == 19){
+        count++;
+      }
+    }
+    if(xPos+1 <= 7){ //right
+      if(board[xPos+1][yPos] == 9 || board[xPos+1][yPos] == 19){
+      count++;
+      }
+    }
+    if(xPos +1 <= 7 && yPos+1 <= 7){ //bottom-right
+      if(board[xPos+1][yPos+1] == 9 || board[xPos+1][yPos+1] == 19){
+        count++;
+      }
+    }
+    if(yPos + 1 <= 7){ //Bottom
+      if(board[xPos][yPos+1] == 9 || board[xPos][yPos+1] == 19){
+        count++;
+      }
+    }
+    if(xPos - 1 >= 0 && yPos + 1 <= 7){
+      if(board[xPos-1][yPos+1] == 9 || board[xPos-1][yPos+1] == 19){
+        count++;
+      }
+    }
+    return count;
+}
+
+//reveal all mines on the game board.
+function revealMines(){
+
+  let i;
+  let j;
 
   let canvas = document.getElementById("gameBoard");
   let ctx = canvas.getContext("2d");
 
-  xPos = Math.floor(e.offsetX/74);
-  yPos = Math.floor(e.offsetY/74);
-
-  if(xPos >= 0  && yPos >= 0 && gameOver == false){
-    if(board[xPos][yPos] == 9){
-      gameOver = true;
-
-      ctx.drawImage(mineImg, blockWidth * xPos + 1, blockHeight * yPos + 1, blockWidth - 1, blockHeight - 1);
-    }else{
-      uncoverSpace(xPos,yPos);
+  for(i = 0; i < board.length; i++){
+    for(j = 0; j < board[i].length; j++){
+      if(board[i][j] == 9){
+        ctx.drawImage(mineImg, blockWidth * i + 1, blockHeight * j + 1, blockWidth - 1, blockHeight - 1);
+      }
     }
   }
-
 }
 
-function uncoverSpace(xPos, yPos){
-  if(board[xPos][yPos] == 0){
-
-  }
-}
-
-function countMines(xPos, yPos){
-    let count = 0;
-
-}
-
+//Clears the board for redrawing.
 function clearBoard(){
 
   let x;
@@ -160,6 +263,7 @@ function clearBoard(){
   }
 }
 
+//Places mines randomly around the board
 function placeMines(minesToPlace){
 
   let x;
@@ -174,6 +278,7 @@ function placeMines(minesToPlace){
   }
 }
 
+//Called when player right clicks to place a flag.
 function placeFlag(e){
 
   let canvas = document.getElementById("gameBoard");
@@ -194,7 +299,8 @@ function placeFlag(e){
     flags--;
   }else if(board[xPos][yPos] > 9 && gameOver == false){
     board[xPos][yPos] -= 10;
-    ctx.clearRect(blockWidth * xPos +1, blockHeight * yPos +1, blockWidth-1,blockHeight-1)
+    ctx.clearRect(blockWidth * xPos +1, blockHeight * yPos +1, blockWidth-1,blockHeight-1);
+    ctx.fillStyle = "#000000"
     ctx.fillRect(blockWidth * xPos +1, blockHeight * yPos +1, blockWidth-1,blockHeight-1);
     ctx.stroke();
     flags++;
