@@ -41,7 +41,13 @@
 	</div>
 	<div class="game-info-container">
 		<span> <p id="flag-counter"> Flags: </p> </span>
-		<span> <button id="reset-button" onclick="reset()"> Reset </button> </span>
+		<span class="reset-button-container"> <button id="reset-button" onclick="reset()"> Reset </button> </span>
+		<span class="difficulty-selector-container"><select name="difficulty-selector" id="difficulty-selector">
+			<option value="Easy"> Easy </option>
+			<option value="Medium"> Medium </option>
+			<option value="Hard"> Hard</option>
+		</select></span>
+
 		<span> <p id="timer"> Timer: 0 </p> </span>
 	</div>
 

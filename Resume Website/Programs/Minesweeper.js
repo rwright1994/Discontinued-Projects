@@ -1,6 +1,6 @@
 //game settings
 var board = [];
-var difficulty = "easy";
+var difficulty;
 var gameOver = false;
 
 //game information.
@@ -9,18 +9,18 @@ var flags;
 
 var timerDisplay;
 var timer;
-var seconds = 0;
-
+var seconds;
 var covered;
 
 
 //block dimensions.
 var blockWidth;
-var blockHeight
+var blockHeight;
 
 //block img resoures.
 var mineImg;
 var flagImg;
+var flaggedMine;
 var numberImgs = [];
 
 
@@ -31,6 +31,10 @@ function startGame(){
   let canvas = document.getElementById("gameBoard");
   document.getElementById("gameBoard").addEventListener('click', onClick);
   document.getElementById("gameBoard").addEventListener('contextmenu', placeFlag);
+  let difficultySelector = document.getElementById("difficulty-selector");
+  difficulty = difficultySelector.options[difficultySelector.selectedIndex].text;
+  console.log(difficulty);
+
   flagCounterDisplay = document.getElementById("flag-counter");
   timerDisplay = document.getElementById("timer");
 
@@ -43,13 +47,24 @@ function startGame(){
   let spaces;
   let minesToPlace;
 
-  if(difficulty == "easy"){
+  if(difficulty == "Easy"){
     spaces = 8;
     minesToPlace = 10;
     flags = 10;
     covered = spaces * spaces - minesToPlace;
-    initBoard(spaces,minesToPlace);
-    flagCounterDisplay.innerHTML = "Flags: " + flags;
+    initBoard(spaces, minesToPlace);
+  }else if(difficulty == "Medium"){
+
+    spaces = 14;
+    minesToPlace = 40;
+    flags = 40;
+    initBoard(spaces, minesToPlace);
+
+  }else if(difficulty == "Hard"){
+    spaces = 20;
+    minesToPlace = 99;
+    flags = 99;
+    initBoard(spaces, minesToPlace);
   }
 
 
@@ -60,13 +75,13 @@ function startGame(){
 
   let i;
   let j;
-  for( i = 0; i < 8; i++){
-    for(j=0; j < 8; j++){
-      ctx.fillRect(blockWidth * i +1, blockHeight * j +1, blockWidth-1,blockHeight-1);
+  for( i = 0; i < spaces; i++){
+    for(j = 0; j < spaces; j++){
+      ctx.fillRect(blockWidth * i + 1, blockHeight * j + 1, blockWidth - 1,blockHeight - 1);
       ctx.stroke();
     }
   }
-  
+
   timerDisplay.innerHTML = "Timer: 0";
   seconds = 0;
   timer = setInterval(incrementTimer, 1000);
@@ -80,8 +95,9 @@ function reset(){
   let ctx = canvas.getContext("2d");
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  board = [];
 
-  clearBoard();
+  clearInterval(timer);
   startGame();
 }
 
@@ -93,12 +109,12 @@ function initBoard(spaces, minesToPlace){
 
   for(x = 0; x < spaces; x++){
     board.push([0]);
-    for(y = 0; y < spaces-1; y++){
+    for(y = 0; y < spaces - 1; y++){
       board[x].push(0);
     }
   }
-
-  placeMines(minesToPlace);
+  flagCounterDisplay.innerHTML = "Flags: " + flags;
+  placeMines(spaces, minesToPlace);
   initResources();
 
 }
@@ -107,9 +123,11 @@ function initBoard(spaces, minesToPlace){
 function initResources(){
 
   mineImg = new Image();
-  mineImg.src = "Resources/Mine.png"
+  mineImg.src = "Resources/Mine.png";
   flagImg = new Image();
-  flagImg.src = "Resources/Flag.png"
+  flagImg.src = "Resources/Flag.png";
+  flaggedMine = new Image();
+  flaggedMine.src = "Resources/Flagged-Mine.png";
 
   let i;
 
@@ -123,13 +141,13 @@ function initResources(){
 //On click get mouse position and call reveal.
 function onClick(e){
 
-  xPos = Math.floor(e.offsetX/74);
-  yPos = Math.floor(e.offsetY/74);
+  xPos = Math.floor(e.offsetX / blockWidth);
+  yPos = Math.floor(e.offsetY / blockHeight);
 
-  reveal(xPos,yPos);
+  reveal(xPos, yPos);
 
-function incrementTimer(){
 }
+
 
 //increments game timer.
 function incrementTimer(){
@@ -138,7 +156,7 @@ function incrementTimer(){
 }
 
 //Reveals a given space.
-function reveal(xPos,yPos){
+function reveal(xPos, yPos){
 
 
   if(xPos >= 0  && yPos >= 0 && gameOver == false && covered > 0){
@@ -157,6 +175,10 @@ function uncoverSpace(xPos, yPos){
 
   let ctx = document.getElementById("gameBoard").getContext("2d");
 
+  if(board[xPos][yPos] >= 10 && board[xPos][yPos] < 19){
+    flags++;
+  }
+
   if(board[xPos][yPos] != -1 ){
       covered--;
       if(countMines(xPos,yPos) == 0){
@@ -164,6 +186,7 @@ function uncoverSpace(xPos, yPos){
         ctx.clearRect(blockWidth * xPos +1, blockHeight * yPos +1, blockWidth-1,blockHeight-1);
         ctx.fillStyle = "#2e2b2b";
         ctx.fillRect(blockWidth * xPos +1, blockHeight * yPos +1, blockWidth-1,blockHeight-1);
+
         board[xPos][yPos] = -1;
           if(xPos - 1 >= 0){ //recurse left
             uncoverSpace(xPos-1,yPos);
@@ -182,7 +205,7 @@ function uncoverSpace(xPos, yPos){
         board[xPos][yPos] = -1;
       }
   }
-
+  flagCounterDisplay.innerHTML = "Flags: " + flags;
 }
 
 //Count the number of mines around a given tile.
@@ -243,33 +266,23 @@ function revealMines(){
 
   for(i = 0; i < board.length; i++){
     for(j = 0; j < board[i].length; j++){
-      if(board[i][j] == 9){
+      if(board[i][j] == 9 ){
         ctx.drawImage(mineImg, blockWidth * i + 1, blockHeight * j + 1, blockWidth - 1, blockHeight - 1);
+      }
+      if(board[i][j] == 19){
+        ctx.drawImage(flaggedMine,blockWidth * i + 1, blockHeight * j + 1, blockWidth - 1, blockHeight - 1);
       }
     }
   }
 }
 
-//Clears the board for redrawing.
-function clearBoard(){
-
-  let x;
-  let y;
-
-  for(x = 0; x < board.length; x++){
-    for(y = 0; y < board.length; y++){
-      board[x][y] = 0;
-    }
-  }
-}
-
 //Places mines randomly around the board
-function placeMines(minesToPlace){
+function placeMines(spaces, minesToPlace){
 
   let x;
   for(x = 0; x < minesToPlace; x++){
-    let xPos = Math.floor(Math.random() * 8);
-    let yPos = Math.floor(Math.random() * 8);
+    let xPos = Math.floor(Math.random() * spaces);
+    let yPos = Math.floor(Math.random() * spaces);
     if(board[xPos][yPos] != 9){
       board[xPos][yPos] = 9;
     }else{
@@ -284,8 +297,8 @@ function placeFlag(e){
   let canvas = document.getElementById("gameBoard");
   let ctx = canvas.getContext("2d");
 
-  xPos = Math.floor(e.offsetX/74);
-  yPos = Math.floor(e.offsetY/74);
+  xPos = Math.floor(e.offsetX/blockWidth);
+  yPos = Math.floor(e.offsetY/blockHeight);
 
 
 
