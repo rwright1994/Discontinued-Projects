@@ -158,7 +158,6 @@ function incrementTimer(){
 //Reveals a given space.
 function reveal(xPos, yPos){
 
-
   if(xPos >= 0  && yPos >= 0 && gameOver == false && covered > 0){
 
     if(board[xPos][yPos] == 9){
