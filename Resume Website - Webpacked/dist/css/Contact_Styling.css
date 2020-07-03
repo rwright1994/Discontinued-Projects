@@ -1,0 +1,47 @@
+.general-contact-btn{
+	vertical-align: top;
+	color: white;
+	text-decoration: none;
+	display: inline-block; 
+	width: 20%;
+	height: 35%;
+	margin-left: 32px;
+	margin-right: 32px;
+	border: solid 1px rgb(219, 229, 25); 
+	padding: 8px;
+	padding-left: 16px;
+	padding-right:16px;
+	transition: 0.4s;
+	background-color:rgba(0, 0, 0, 0.91);
+}
+
+.general-contact-btn:hover{
+	background-color: rgb(219, 229, 25);
+	border-color: rgb(219, 229, 25);
+	
+}
+
+
+#card-heading{
+	border-bottom:  solid white 1px;
+	transition: 0.4s;
+}
+
+
+.general-contact-btn:hover > #card-heading{
+	border-bottom: solid black 1px;
+	color: black;
+}
+
+#card-content {
+	display: inline-block;
+	overflow: hidden;
+	padding: 8px;
+	max-height: inherit;
+	transition: 0.4s;
+}
+
+.general-contact-btn:hover > #card-content{
+	color: black;
+}
+

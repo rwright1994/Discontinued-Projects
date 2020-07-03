@@ -1,0 +1,148 @@
+main{
+	background-color: white;
+}
+
+/*Logo adjustments*/
+img.resume-logo-item-cibc{
+	float: right;
+	width: 8%;
+	height: 8%;
+	margin-right:14%;
+}
+
+img.resume-logo-item-dw{
+	float: right;
+	width: 25%;
+	height: 25%;
+
+}
+
+img.resume-logo-item-walmart{
+	float: right;
+	width: 10%;
+	height: 10%;
+	margin-right:17%;
+}
+
+.resume-content-index{
+	margin: 2%;
+	padding: 5%;
+	background-color:rgba(249,249,249);
+}
+
+.resume-content-wrapper{
+	display: flex;	
+	font-size: 1.5em;
+	width:100%;
+	padding: 2%;
+}
+.resume-content-wrapper-flex{
+	display: flex;
+	width:80%;
+	margin: 4%;
+	padding: 2%;
+}
+
+.row-content{
+	display: block; 
+	margin-left: auto;
+	margin-right: auto
+}
+
+
+h4.resume-employer-content{
+	padding-left: 3%;
+	width: 80%;
+}
+
+/* Dash bullet point list for describing roles*/
+ul.dashed {
+  	margin: 0;	
+	font-size:16px;
+}
+
+ul.dashed {
+  	list-style-type: none;
+}
+ul.dashed > li {
+  	text-indent: -5px;
+}
+ul.dashed > li:before {
+ 	 content: "-";
+  	text-indent: -5px;
+}	
+
+ul#skill-list{
+	font-size: 1.5em;
+}
+
+
+
+li.resume-employer-desc-content{
+	list-style-type: decimal;
+}
+
+/*reworked css classses*/
+
+
+/*flexed container for resume content*/
+.resume-item-container{
+	display:block;
+	margin-left:7%;
+	overflow:hidden;
+}
+
+h3.resume-job-position-title{
+	font-size: 30px;
+}
+
+.resume-role-desc{
+	font-size: 20px;
+	font-style: italic;
+}
+
+.resume-timestamp{
+	border-bottom: solid;
+	border-color: black;
+	border-width: 2px;
+	width:100%;
+	font-style: italic;
+	font-size: 21px;
+}
+
+h3.left-side-header{
+	font-size:36px;
+}
+
+
+.row-wrapper{
+	display: block;
+}
+
+.col-wrapper-flex{
+	display: flex;
+	margin: 2%;
+	padding: 3%;
+}
+.col-wrapper-block{
+	display: block;
+}
+
+/* skill list stylings */
+
+.skill-list-container{
+	display:flex;
+	margin-left: 5%;
+}
+
+.skill-list-col-container{
+	position:relative;
+	width: 40%;
+}
+
+/* Education Stylings */
+
+.education-container{
+	margin-left: 5%;
+}
+

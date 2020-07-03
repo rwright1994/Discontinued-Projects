@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/aa6dce0a1e.js" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <title>StockWatch</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="" alt="Logo";>
+            <from class="search">
+                <input type="text" class="search__field" placeholder="Search for a stock my name or symbol...">
+                <button class="search__btn">
+                   Search
+                    </button>
+            </from>
+           
+            <div class="favorites"></div>
+        </header>  
+
+
+        <div class="active-stocks-container">
+            <ul class="active-list"> 
+                <li>Symbol</li>
+                    <div class="active-list-data">
+                        <p>Mini graph</p>
+                        <p>+/-</p>
+                    </div>
+            </ul>
+        </div>
+
+        <div class="stock-graphlist-container">
+            <ul>
+
+                 <!-- Item #1-->
+                <li class="stock-card-container"> 
+                    <h3>Title & Symbol</h3>
+                    <div style="display:flex;">
+                        <div class="stock-chart" id="stock_chart"></div>
+                        <div class="stock-info">
+                            <div class="stock-open"> Open Price: </div>
+                            <div class="stock-open-val"> $15.00 </div>
+                            <div class="stock-prev-close"> Prev Close Price: </div>
+                            <div class="stock-prev-close-val"> $15.00 </div>
+                            <div class="stock-curr"> Current Price: </div>
+                            <div class="stock-curr-val"> $15.00 </div>
+                        </div>
+                    </div>
+                   <div class="stock-action-bar">
+                       <img class="fav__icon" src="img/Favorite.png">
+                       <!-- <svg class="fav__icon">
+                           <use href="img/Favorite.png"> </use>
+                       </svg> -->
+                   </div>
+                </li>
+        
+                <!-- Item #2-->
+            
+            </ul>
+        </div>
+        
+        <div class="stock-infolist-container">
+
+        </div>
+    </div>
+
+</body>
+</html>

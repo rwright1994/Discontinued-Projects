@@ -1,0 +1,132 @@
+html{
+	min-height:100%;
+	box-sizing:border-box;
+}
+
+body{
+	height:90%;
+	margin:5%;
+	box-sizing: border-box;
+}
+
+.container{
+	display:grid;
+	grid-template-rows: 10rem minmax(100rem, auto);
+	grid-template-columns: 0.8fr 2fr 0.8fr;
+	grid-template-areas: 
+	"head head head" 
+	"favoritelist graphlist infolist";
+}
+
+.header{
+	grid-area: head;
+	display:flex;
+	background-color: blue;
+	align-items:center;
+	justify-content:space-between;
+}
+
+.search{
+	display:flex;
+	padding-left: 3rem;
+	align-items:center;
+}
+
+.search__btn{
+	background: black;
+	color:white;
+	width:50px;
+	height:50px;
+
+}
+
+.search__field{
+	border:none;
+	border-radius:10rem;
+	font-size:1.7rem;
+}
+.btn{
+	background-color:black;
+	color:white;
+}
+
+.btn svg{
+	padding-top: 5px;
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.fav__icon{
+	transition: background-color 2s ;
+}
+
+
+.search__field{
+	width:30rem;
+	
+}
+
+.stock-graphlist-container{
+	grid-area: graphlist;
+	background-color: black;
+	
+}
+
+.stock-chart{
+	margin:5%;
+
+	overflow:hidden;
+	display:inline-block;
+	
+}
+
+.stock-open-price{
+	display: block;
+	width: 40%;
+	margin: 0px;
+	padding: 0px;
+}
+
+.stock-shortlist-list{
+	list-style:none;
+	display:block;
+}
+
+.stock-info{
+	display:grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 1.5rem;
+	margin-left:5%;
+}
+
+.stock-action-bar{
+	display:inline-block;
+	margin: 2%;
+
+
+}
+
+.stock-infolist-container{
+	grid-area: infolist;
+	background-color: green;
+}
+.stock-card-container{
+	display: block;
+	border-radius: 12px;
+	background-color: white;	
+	width:80%;
+	height:25%;
+	border: solid black 1px;
+	margin:auto;
+	margin-top:5%;
+}
+
+.active-list{
+	list-style: none;
+	padding: 2%;
+}
+
+.active-list-data{
+	display:inline;
+
+}

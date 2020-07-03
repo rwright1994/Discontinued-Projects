@@ -1,0 +1,51 @@
+canvas {
+	display: inline-block;
+	width: 600px;
+	height: 600px;
+    	border: 1px solid black;
+        background-color: #f1f1f1;
+}
+
+
+.title-container{
+	display: inline-block;
+	width:100%;
+}
+
+.game-container{
+	width:100%;
+	text-align: center;
+	min-height:100%;
+	margin-bottom: 5%;
+}
+
+.game-info-container{
+	display: flex;
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	justify-content: space-between;
+}
+
+.game-info-container span{
+	flex: 1;
+	text-align: center;
+}
+	
+.reset-button-container{
+	margin: auto;
+}
+
+#reset-button{
+	width:80px;
+	height:25px;
+}
+
+.difficulty-selector-container{
+	margin: auto;
+}
+
+#difficulty-selector{
+	width: 80px;
+	height: 25px;
+}

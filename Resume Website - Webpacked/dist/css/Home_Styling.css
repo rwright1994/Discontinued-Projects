@@ -1,0 +1,161 @@
+/*Index Styling.*/
+.index-item-wrapper{
+	display: flex;
+	text-align: center;
+	padding: 5%;
+	padding-top:8%;
+	background-color:rgba(214, 214, 214, 0.44);	
+}
+
+@media screen and (max-width:320px){
+	
+	.index-item-wrapper{
+		flex-direction: column;
+	}
+}
+
+@media screen and (min-width:321px) and (max-width:375px){
+
+	.index-item-wrapper{
+		flex-direction: column;
+	}
+
+
+}
+
+@media screen and (min-width:376px) and (max-width: 425px){
+
+	.index-item-wrapper{
+		flex-direction: column;
+	}
+
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px){
+
+	.index-item-wrapper{
+		flex-direction: column;
+	}
+
+}
+
+/* Alternate inline block banner dark-light shade*/
+.index-item-wrapper-alt-lightshade{
+	display: inline-block;
+	text-align: center;
+	color: white;
+	width:100%;
+	padding-top:2%;
+	padding-bottom: 2%;
+	background-color:rgba(0, 0, 0, 0.91)	
+}
+
+/*Mini projects banner styling classes */
+.index-banner-header-wrapper{
+	display: inline-block;
+	font-family: Arial,Helvetica,sans-serif;
+	text-align: center;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 3em;
+	letter-spacing: 0.1em;
+	width:75%;
+}
+
+.index-projects-blocks-wrapper{
+	display:flex;
+}
+
+.index-projects-banner-blocks{
+	flex:1;
+	display: inline-block;
+	font-size: 20	px;
+	text-align: center;
+	width:35%;
+
+}
+
+.index-banner-clear{
+	clear: both;
+}
+
+.mini-projects-block-text{
+	display: inline-block;
+	width:80%; 
+	text-align: center;
+}
+
+.light-green{
+	color:rgb(219, 229, 25);
+}
+
+/*Mini projects banner sylings by ID. */
+#mini-projects-btn{
+	color: white;
+	text-decoration: none;
+	display: inline-block; 
+	border: solid 1px rgb(219, 229, 25); 
+	padding: 8px;
+	padding-left: 16px;
+	padding-right:16px;
+	transition: 0.4s;
+}
+
+/* On hover transition to a light green background and black text*/
+#mini-projects-btn:hover{
+	background-color: rgb(219, 229, 25);
+	border-color: rgb(219, 229, 25);
+	color: black;
+}
+
+.contactbtn-wrapper{
+	display: inline-block;
+	text-align: center;
+	width:100%;
+	padding-top:5%;
+}
+
+
+
+/*Contact me styling by ID*/
+#contactbtn{
+	display: inline-block;
+	border: solid black 1px;
+	padding: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	transition: 0.3s;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: "Times New Roman", Times, serif;
+	color: black;
+	
+}
+
+#contactbtn:hover{
+	background-color: black;
+	color: white;
+}
+
+.img-wrapper{
+	padding: 7%;	
+}
+
+.image-text-pair-wrapper{
+	display: inline-block
+	word-wrap: break-word;
+	text-align: left;
+	width: 100%;	
+	font-family: "Lucida Console", Courier, monospace;
+	font-weight: 400;
+	letter-spacing: 0.1em;
+	line-height: 2em;	
+	position: relative;
+	top:25%;
+	padding-top: 5%;
+}
+
+#index-img-A{
+	width: 100%;
+}
+
