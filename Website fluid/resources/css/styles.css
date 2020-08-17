@@ -1,0 +1,583 @@
+/*------------------------------------------------*/
+/*      BASIC SETUP                               */
+/*------------------------------------------------*/
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html,
+body{
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    color:black;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+
+/*------------------------------------------------*/
+/*              HEADING TAGS                      */
+/*------------------------------------------------*/
+
+h1,
+h2,
+h3{
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+
+
+/*------------------------------------------------*/
+/*              REUSEABLE COMPONENTS              */
+/*------------------------------------------------*/
+
+section{
+    padding: 80px 0;
+}
+
+.row{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.row-1560{
+    max-width: 1560px;
+    margin: 0 auto;
+}
+
+.row:after{
+    content:"";
+    display:table;
+    clear:both;
+    
+}
+
+.row-1560:after{
+    content:"";
+    display:table;
+    clear:both;
+    
+}
+
+.col-25{
+    display:block;
+    float:left;
+    width:20%;
+    margin:1% 0 1% 1.6%;
+}
+
+.col-35{
+    display:block;
+    float:left;
+    width:30%;
+    margin: 1% 0 1% 1.6%;
+}
+
+.col-50{
+    display:block;
+    float:left;
+    width:45.2%;
+    margin: 1% 0 1% 1.6%;
+}
+
+.col-75{
+    display:block;
+    float:left;
+    width:70.2%;
+    margin: 1% 0 1% 1.6%;
+}
+
+
+
+/*------------------------------------------------*/
+/*                   HEADER                       */
+/*------------------------------------------------*/
+
+header {
+
+    background-color:black;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),url(../images/index-img-A.png);
+    background-size: cover;
+    background-position:center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+/*------------------------------------------------*/
+/*                  IMAGES                        */
+/*------------------------------------------------*/
+
+.profile-picture{
+    float:left;
+    border-radius: 50%;
+    border: 2px solid white;
+    width: 100px;
+    height: 100px;
+    margin: 24px 32px;
+}
+
+.profile-picture:hover {
+    border: 2px solid  rgb(219, 229, 25);  
+}
+
+
+/*------------------------------------------------*/
+/*                  ICONS                         */
+/*------------------------------------------------*/
+
+
+
+/*------------------------------------------------*/
+/*                 NAVI                           */
+/*------------------------------------------------*/
+
+.main-navi{
+ 
+    float: right;
+    list-style:none;
+    margin-top: 55px;
+    
+}
+
+
+.main-navi li{
+    display:inline-block;
+    margin-left: 40px;
+}
+
+
+.main-navi li a:link,
+.main-navi li a:visited {
+    text-decoration: none;
+    color: white;
+    border-bottom: 2px solid transparent;
+    padding: 8px 0;
+    font-size: 90%;
+    transition: color 0.3s, border 0.3s;
+}
+
+
+.main-navi li a:hover,
+.main-navi li a:active{
+    color: rgb(219, 229, 25);
+    border-bottom: 1px solid  rgb(219, 229, 25);
+}
+
+.main-navi li:last-child{
+    margin-right: 60px;
+}
+
+.mobile-navi{
+    display:none;
+    float:right;
+    color:white;
+    font-size:175%;
+    margin: 16px;
+    cursor: pointer;
+}
+
+
+.mobile-navi i:hover,
+.mobile.navi i:active{
+    color:rgb(219, 229, 25);
+}
+
+/*----------------FOOTER NAVI--------------------*/
+
+.footer-navi{
+    list-style: none;
+    float:left;
+}
+
+.social-links{
+    list-style: none;
+    float:right;
+}
+
+.footer-navi li,
+.social-links li{
+    display:inline-block;   
+}
+
+.social-links li{
+    margin: 0 6px;
+}
+
+.social-links li{
+    font-size: 180%;
+}
+
+.footer-navi li a:link,
+.footer-navi li a:visited{
+    text-decoration: none;
+    color:rgba(250,250,250,.75);
+    margin: 0 16px;
+    transition: color 0.3s, border 0.3s;
+    border: 1px solid transparent;
+}
+
+.footer-navi li a:hover,
+.footer-navi li a:active{
+    color:  rgb(219, 229, 25);
+    border-bottom: 1px solid rgb(219, 229, 25);
+}
+
+.ion-social-linkedin,
+.ion-social-facebook,
+.ion-social-github{
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.ion-social-linkedin:hover,
+.ion-social-linkedin:active{
+    color: #0077B5
+}
+
+.ion-social-facebook:hover,
+.ion-social-facebook:active{
+    color: #3b5999
+}
+
+.ion-social-github:hover,
+.ion-social-github:active{
+    color: white;
+}
+
+
+
+
+
+/*--------------   Home Page    ------------------*/
+
+/*------------------------------------------------*/
+/*          INTRODUCTION SECTION                  */
+/*------------------------------------------------*/
+
+
+.section-introduction {
+    background-color: rgb(240, 240, 240);
+}
+
+.long-copy{
+    text-align:center;
+    margin: 30px 0;
+    font-weight: 300;
+}
+
+.section-introduction img{
+    width:100%;
+    padding: 0 5%;
+}
+
+.section-introduction p{
+    font-weight: 300;
+    word-spacing: 4px;
+    letter-spacing: 2px;
+    line-height: 1.5em;
+    padding: 30px 30px;
+}
+
+
+/*------------------------------------------------*/
+/*                CODING SECTION                  */
+/*------------------------------------------------*/
+
+.section-coding {
+    padding: 120px 0;
+    background: rgba(0, 0, 0, 0.91);
+    color:white;
+}
+
+.section-coding h1{
+    font-weight: 500;
+    word-spacing: 4px;
+    letter-spacing: 3px;
+    line-height: 1.5em;
+}
+
+.section-coding h3{
+    color: rgb(219, 229, 25);
+    font-weight: 500;
+    margin: 15px 0;
+}
+
+.section-coding p{
+    text-align:center;
+    margin: 10px 10px;
+    
+}
+
+.section-coding .col-50 div:last-child{
+    text-align:center;
+}
+
+
+/*------------------------------------------------*/
+/*            CONTACT ME SECTION                  */
+/*------------------------------------------------*/
+
+.section-contact-me{
+    background-color: rgb(240, 240, 240);
+}
+
+.section-contact-me img{
+    width:118%;
+    padding: 0 5%;
+    height:150%;
+}
+
+.section-contact-me h1{
+    margin-bottom: 20px;
+}
+
+.section-contact-me h2{
+    font-weight: 300;
+    margin: 20px 0;
+    font-size:100%;
+}
+
+.section-contact-me p{
+    margin: 0 10%;
+    padding: 15px 15px;
+    text-align: center;
+    letter-spacing: 3px;
+    line-height: 1.5em;
+}
+
+.section-contact-me .col-50 div:last-child{
+    text-align:center;
+}
+
+
+
+
+
+/*------------------------------------------------*/
+/*                  BUTTONS                       */
+/*------------------------------------------------*/
+
+
+
+.btn:link,
+.btn:visited{
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 12px 0;
+    display:inline-block;
+    text-decoration: none;
+    padding:10px 30px;
+    border: 1px solid black;
+    border-radius: 16px;
+    color:black;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.btn:hover,
+.btn:active{
+    background-color:black;
+    color:white;
+}
+
+.coding-btn:link,
+.coding-btn:visited{
+    color:white;
+    border: 1px solid rgb(219, 229, 25);
+}
+
+.coding-btn:hover,
+.coding-btn:active{
+    color: black;
+    background-color:rgb(219, 229, 25);
+}
+
+
+/*------------------------------------------------*/
+/*                  FOOTER                        */
+/*------------------------------------------------*/
+
+footer{
+    background: rgba(0, 0, 0, 0.91);
+    padding: 50px 0;
+    font-size:80%;
+    color:rgba(250,250,250,.75);
+}
+
+.copy-right{
+    margin-top: 24px;
+    text-align:center;
+}
+
+.social-container{
+    float:right;
+    margin-right:36px;
+}
+
+/*---------------  Resume Page  ------------------*/
+
+/*------------------------------------------------*/
+/*            RESUMABLE COMPONENTS                */
+/*------------------------------------------------*/
+
+.resume-container section{
+    padding:0;
+}
+
+.resume-container h3{
+  text-align:left;  
+}
+
+.resume-container h5{
+    font-weight:400;
+    font-style: italic;
+    padding: 8px 0;
+}
+
+li{    
+    font-size: 90%;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    line-height: 1.5em;
+    font-weight: 300;
+    margin-left: 20px;
+    padding: 4px 0;
+}
+
+
+
+/*------------------------------------------------*/
+/*                 RESUME HEADER                  */
+/*------------------------------------------------*/
+
+.resume-heading{
+    text-align:left;
+    margin-left: 24px;
+    margin-right: 16px;
+    border-bottom: 1px solid rgba(192, 192, 192, 0.849);
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    color:darkblue;
+}
+
+.section-resume{
+    background-color:rgb(240, 240, 240);
+}
+
+.resume-container{
+    background-color:white;
+    max-width: 1140px;
+    margin: 0 auto;
+    border-radius: 15px 15px 0 0;
+    box-shadow: -1px 5px 6px 2px rgba(194,194,194,1);
+    
+}
+
+.resume-header{
+   
+    background-color: darkblue;
+    color:white;
+    box-shadow: -1px 9px 5px -3px rgba(194,194,194,1);
+    border: 1px solid darkblue;
+    border-radius: 15px 15px 0 0;
+    height:100px;
+}
+
+.resume-name,
+.resume-role-title{
+    width:100%;
+    text-align: left;
+}
+
+.resume-name{
+    font-weight:400;
+    padding: 8px 24px;
+}
+
+.resume-role-title{
+    font-weight:300;
+    padding: 0 24px;
+}
+
+/*------------------------------------------------*/
+/*               OBJECTIVE SECTION                */
+/*------------------------------------------------*/
+
+.section-objective{
+    max-width: 1140px;
+    padding:0;
+}
+
+
+.resume-objective{
+    margin: 30px auto 30px auto;
+    padding: 0 24px;
+    font-size: 100%;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    font-style: italic;
+}
+
+/*------------------------------------------------*/
+/*            EXPERIENCE SECTION                  */
+/*------------------------------------------------*/
+
+.section-experience{
+    max-width: 1140px;
+    padding:0;
+}
+
+.section-experience .row{
+    padding: 8px 0;
+}
+
+
+.time-stamp{
+    font-weight: 500;
+    margin-left: 8px;
+}
+
+/*------------------------------------------------*/
+/*             EDUCATION SECTION                  */
+/*------------------------------------------------*/
+
+/* Uses reusable components */
+
+/*------------------------------------------------*/
+/*     CERTIFICATIONS & LICENSES SECTION          */
+/*------------------------------------------------*/
+
+.badge-container{
+    width:100%; 
+    padding: 0 25%;
+}
+
+.cert-badge{
+    
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+/*------------------------------------------------*/
+/*     CERTIFICATIONS & LICENSES SECTION          */
+/*------------------------------------------------*/
+
+.skill-row{
+    padding: 0 60px;
+}
+
+.skill-row .col-25{
+    padding: 0 16px;
+}
+
+.skill-row li{
+    font-weight:400;
+    list-style: none;
+    text-align:center;
+}
