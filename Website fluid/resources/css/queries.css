@@ -1,6 +1,10 @@
 @media only screen and (max-width: 1200px){
 
 
+/*------------------------------------------------*/
+/*                 HOME PAGE QUERIES              */
+/*------------------------------------------------*/ 
+
     .section-introduction h1{
         font-weight: 400;
         font-size: 140%;
@@ -58,12 +62,46 @@
         height:125%;
     }
 
+/*------------------------------------------------*/
+/*               RESUME PAGE QUERIES              */
+/*------------------------------------------------*/ 
+
+
+.resume-container{
+    max-width: 90%;
 }
 
-@media only screen and (max-width: 1023px){
+}
 
+
+
+@media only screen and (max-width: 1063px){
+
+/*------------------------------------------------*/
+/*               RESUME PAGE QUERIES              */
+/*------------------------------------------------*/ 
+
+.resume-container{
+    font-size:92%;
+}
+
+.resume-container h2{
+    font-size: 125%;
+}
+
+.resume-container h3{
+    font-size: 100%;
+}
+
+.section-personal-info .col-25,
+.section-personal-info .col-75{
+    font-size: 80%;
+}
 
 }
+
+
+
 /*--681px to 847px*/
 @media only screen and (max-width: 848px){
 
@@ -79,9 +117,16 @@
     }
 
     .main-navi{display:inline-block;}
+
+    .footer-navi li {
+        margin: 0;
+    }
 }
 
-@media only screen and (max-width: 758px){
+
+
+
+@media only screen and (max-width: 776px){
     .main-navi{
         display:none;
      }
@@ -107,10 +152,36 @@
     .section-contact-me img{
         margin: 40px 0;
     }
+
+    .resume-container{
+        font-size:82%;
+    }
+    
 }
 
 
 
 @media only screen and (max-width: 680px){
+
+
+/*------------------------------------------------*/
+/*               RESUME PAGE QUERIES              */
+/*------------------------------------------------*/ 
     .col-50{width:100%;}
+    
+    .skill-row .col-35{display:none;}
+
+    .skill-row .col-50{display: block;}
+
+    .skill-row .col-50:last-child{padding-bottom:16px;}
+
+    
+    
+    .footer-navi{width:60%;}
+    footer .col-75{width:40%;}
+    footer .col-25{width:40%;}
+    .footer-navi li{
+        display:block;
+        padding: 8px 0;}
+    
 }

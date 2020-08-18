@@ -9,11 +9,14 @@ $(document).ready(function(){
         if(nav.is(':visible')){
             nav.css("display","")
             console.log('Now hidden');
+            icon.addClass('ion-navicon-round');
+            icon.removeClass('ion-close-round');
         }else{
             nav.slideToggle();
-            console.log('Now visible');
+            console.log(icon);
+            icon.removeClass('ion-navicon-round');
+            icon.addClass('ion-close-round');
         }
-        icon.removeClass('.ion-navicon-round');
-        icon.addClass('.ion-close-round');
+        
     });
 });

@@ -15,16 +15,25 @@
 
     <!-------   Header   ------>
     <header> 
-        <nav></nav>
+        <nav>
             <div class="row-1560">
                 <a href="#"><img class="profile-picture" src="resources/images/Photo.jpg"></a>
-                <ul class="main-navi">
+                <ul class="main-navi js--main-navi">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="resume.html">Resume</a></li>
-                    <li><a href="#">Programs</a></li>
+                    <li class="dropdown"><a  href="programs.html">Programs<i class="ion-arrow-down-b"></i></a>
+                        <div class="dropdown-navi-container">
+                            <ul class="dropdown-navi">
+                                <li><a>Mine sweeper</a></li>
+                                <li><a>Battleship</a></li>
+                            </ul>
+                        </div></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
+                <a class="mobile-navi  js--mobile-navi-icon"><i class="ion-navicon-round"></i></a>
+
+              
             </div>
         </nav>
     </header>
@@ -233,8 +242,79 @@
                     <li>SQL</li>
                     <li>Java</li>
                 </div>
-               
+
+                <div class="col-50">
+                    <li>JavaScript</li>
+                    <li>CSS</li>
+                    <li>HTML</li>
+                    <li>SQL</li>
+                    <li>Java</li>
+                </div>
+
+                <div class="col-50">
+                    <li>Cost Management</li>
+                    <li>Schedule Management</li>
+                    <li>Procurement Management</li>
+                    <li>Scope Management</li>
+                    <li>Business Management</li>
+                </div>
+
             </div>
+        </section>
+
+        <section class="section-personal-info">
+            <div class="row">
+                <h2 class="resume-heading"> Personal Information</h2>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <h3>Phone Number</h3>
+                </div>
+                <div class="col-75">
+                    <p><i class="ion-ios-telephone"></i>506-229-0372</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <h3> E-mail</h3>
+                </div>
+                <div class="col-75">
+                    <p><i class="ion-ios-email"></i>robertstephenwright94@gmail.com </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <h3>Website</h3>
+                </div>
+                <div class="col-75">
+                    <p><i class="ion-ios-world"></i>www.robertwright.com </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <h3>Git Hub</h3>
+                </div>
+                <div class="col-75">
+                    <p><i class="ion-social-github"></i><a href="https://github.com/rwright1994"> https://github.com/rwright1994</a></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <h3>LinkedIn</h3>
+                </div>
+                <div class="col-75">
+                    <p><i class="ion-social-linkedin"><a href="https://www.linkedin.com/in/rswright94"></i>www.linkedin.com/in/rswright94</p></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <h3>Facebook</h3>
+                </div>
+                <div class="col-75">
+                    <p><i class="ion-social-facebook"><a href="https://www.facebook.com/robert.s.wright.52"></i>https://www.facebook.com/robert.s.wright.52</p></a>
+                </div>
+            </div>
+            
         </section>
             <!--Resume container end-->
             </div> 
@@ -243,17 +323,7 @@
     
 
 
-        <!-------   Footer   
-            HTML/CSS
-Java/JavaScript
-BootStrap
-C#
-Object-oriented Design
-Unity
-Microsoft Office Package
-JQuery
-SQL
------->
+        <!-------   Footer   ------>
         <footer>
             <div class="row">
                 <div class="col-75">
@@ -280,6 +350,8 @@ SQL
             </div>
         </footer>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="resources/js/script.js"></script>
 </body>
 
 
