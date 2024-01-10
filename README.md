@@ -1,12 +1,10 @@
 # Projects
-Project to allow users to view working files
+An old discontiued set of projects that was started.
 
- General working portfolio for all my outstanding development projects which include:
+ It was a general working portfolio for all my outstanding development projects which included:
  
  Unity Engine - Mostly Unity 2D
  Web Development - HTML, CSS, JavaScript, and NodeJS
  General Purpose Programming Languages - Java
  
- My objective for the github profile is to hopefully attempt to add to, update, develop to my existing programming languages and projects as well as learn from others. The plan is to add to my GitHub page within 3 week periods and to keep the page active, although other commitments might delay some uploads but hopefully not. If for whatever reason you are browsing my GitHub and notice anything that could be improved or done differently please feel free to make changes to projects.
- 
- 
+ My objective for the GitHub profile was to hopefully attempt to add to, update, develop any existing projects further as well as gain exposure to others languages. The plan was to add to my GitHub page within 3 week periods and to keep the page active, although other commitments and obligations had taken priority. Work is currently on for <b> potential employers </b> to see the progress from previous projects that were started prior to my most recent business website. (Only available upon request or upload to employment website)
